@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseCookingBakery">
+
+    <Button
+        android:id="@+id/HouseCooking"
+        android:layout_width="294dp"
+        android:layout_height="263dp"
+        android:text="House Cooking"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <Button
+        android:id="@+id/HouseBakery"
+        android:layout_width="292dp"
+        android:layout_height="275dp"
+        android:text="House Bakery"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <Button
+        android:id="@+id/ClientProfile"
+        android:layout_width="249dp"
+        android:layout_height="44dp"
+        android:text="הפרופיל שלי"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="10dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Order">
+
+    <EditText
+        android:id="@+id/OrderDetails"
+        android:layout_width="352dp"
+        android:layout_height="243dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="אנא כתוב את מספרי המוצרים שברצונך להזמין"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <Button
+        android:id="@+id/Orderbutton"
+        android:layout_width="130dp"
+        android:layout_height="84dp"
+        android:text="הזמן"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="522dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerOrderDetails">
+
+    <EditText
+        android:id="@+id/FullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="שם מלא"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="95dp" />
+
+    <EditText
+        android:id="@+id/Adress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="כתובת למשלוח"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="168dp" />
+
+    <EditText
+        android:id="@+id/PhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="מספר נייד"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="אימייל"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="304dp" />
+
+    <EditText
+        android:id="@+id/Remarks"
+        android:layout_width="201dp"
+        android:layout_height="193dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="הערות למשלוח:"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="378dp" />
+
+    <Button
+        android:id="@+id/Payment"
+        android:layout_width="118dp"
+        android:layout_height="73dp"
+        android:text="תשלום"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="613dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
