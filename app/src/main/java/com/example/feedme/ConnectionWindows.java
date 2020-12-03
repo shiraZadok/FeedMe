@@ -11,16 +11,16 @@ import android.widget.Button;
 public class ConnectionWindows extends AppCompatActivity implements View.OnClickListener {
 
     Button Client;
-    Button Business;
+    Button BusinessOwner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connection_windows);
         Client=(Button)findViewById(R.id.Client);
-        Business=(Button)findViewById(R.id.Business);
+        BusinessOwner=(Button)findViewById(R.id.BusinessOwner);
         Client.setOnClickListener(this);
-        Business.setOnClickListener(this);
+        BusinessOwner.setOnClickListener(this);
 
     }
 
@@ -30,9 +30,9 @@ public class ConnectionWindows extends AppCompatActivity implements View.OnClick
             Intent intent=new Intent(this,CustomerLogin.class);
             startActivity(intent);
         }
-//        if(view==Business){
-//            Intent intent=new Intent(this,Business.class);
-//            startActivity(intent);
-//        }
+        if(view==BusinessOwner){
+            Intent intent=new Intent(this,BusinessLogin.class);
+            startActivity(intent);
+        }
     }
 }
