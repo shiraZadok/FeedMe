@@ -18,19 +18,32 @@ import com.google.firebase.database.ValueEventListener;
 public class ClientProfile extends AppCompatActivity implements View.OnClickListener{
 
     Button UpdateDetails;
-    TextView MyDetail;
+    TextView C_Name;
+    TextView C_Phone;
+    TextView C_Adress;
+    TextView C_Password;
+    TextView C_Email;
+
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         rootNode=FirebaseDatabase.getInstance();
-        reference=rootNode.getReference("Clients");
+        reference=rootNode.getReference("Cients/-MNdagUIsiF1NYQsa6XL");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String answer=(String)snapshot.getValue();
-                MyDetail.setText(answer);
+                String name=(String)snapshot.child("Name").getValue().toString();
+                C_Name.setText(""+name);
+                String phone=(String)snapshot.child("Phone").getValue().toString();
+                C_Phone.setText(""+phone);
+                String email=(String)snapshot.child("Email").getValue().toString();
+                C_Email.setText(""+email);
+                String adress=(String)snapshot.child("Adress").getValue().toString();
+                C_Adress.setText(""+adress);
+                String password=(String)snapshot.child("Password").getValue().toString();
+                C_Password.setText(""+password);
             }
 
             @Override
@@ -41,7 +54,11 @@ public class ClientProfile extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_profile);
         UpdateDetails=(Button)findViewById(R.id.UpdateDetails);
-        MyDetail=(TextView)findViewById(R.id.MyDetail);
+        C_Name=(TextView)findViewById(R.id.C_Name);
+        C_Adress=(TextView)findViewById(R.id.C_Adress);
+        C_Email=(TextView)findViewById(R.id.C_Email);
+        C_Phone=(TextView)findViewById(R.id.C_Phone);
+        C_Password=(TextView)findViewById(R.id.C_Password);
 
         UpdateDetails.setOnClickListener(this);
     }

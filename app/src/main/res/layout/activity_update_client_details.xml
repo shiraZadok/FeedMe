@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UpdateClientDetails">
+
     <EditText
         android:id="@+id/Name"
         android:layout_width="wrap_content"
@@ -12,8 +13,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="שם מלא"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="146dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/Adress"
@@ -22,8 +25,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="כתובת"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="210dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.285" />
 
     <EditText
         android:id="@+id/Password"
@@ -31,16 +38,22 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="118dp" />
 
     <TextView
         android:id="@+id/textViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="סיסמא"
-        tools:layout_editor_absoluteX="257dp"
-        tools:layout_editor_absoluteY="355dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.179" />
 
     <EditText
         android:id="@+id/Email"
@@ -49,8 +62,12 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text=" מייל"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.602" />
 
     <EditText
         android:id="@+id/Phone"
@@ -59,24 +76,36 @@
         android:ems="10"
         android:inputType="phone"
         android:text="פלאפון"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="279dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386" />
 
     <TextView
         android:id="@+id/Text"
         android:layout_width="314dp"
         android:layout_height="50dp"
-        android:text="אנא מלא את הפרטים הבאים על מנת להירשם:"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="62dp" />
+        android:text="עדכן את פרטיך"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.051" />
 
     <Button
         android:id="@+id/Update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="עדכן"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="478dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
