@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736863877504",
+    "project_id": "feedme-87348",
+    "storage_bucket": "feedme-87348.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736863877504:android:430da65584ade33628a965",
+        "android_client_info": {
+          "package_name": "com.example.feedme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736863877504-19sp8fd9rf75o48calis9tt1drk07dau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBExAc3iRX5gR2_5NFBtcsKP_eRczdhvVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736863877504-19sp8fd9rf75o48calis9tt1drk07dau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

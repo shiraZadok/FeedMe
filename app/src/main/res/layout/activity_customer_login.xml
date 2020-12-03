@@ -12,16 +12,24 @@
         android:layout_height="46dp"
         android:text="סיסמא"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="336dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.297" />
 
     <Button
         android:id="@+id/Connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="התחבר"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="421dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468" />
 
     <EditText
         android:id="@+id/FullName"
@@ -30,8 +38,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="שם מלא"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="218dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
 
     <EditText
         android:id="@+id/Password"
@@ -39,10 +51,15 @@
         android:layout_height="74dp"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FullName"
+        app:layout_constraintVertical_bias="0.049" />
 
     <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="208dp"
@@ -56,8 +73,12 @@
         android:layout_height="43dp"
         android:text="שכחתי סיסמא"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="535dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.665" />
 
     <Button
         android:id="@+id/NewBusiness"
@@ -65,7 +86,10 @@
         android:layout_height="41dp"
         android:text="אין לך עדיין משתמש? לחץ כאן"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="602dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.749" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

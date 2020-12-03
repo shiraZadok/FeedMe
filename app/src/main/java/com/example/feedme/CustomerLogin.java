@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.common.api.Api;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CustomerLogin extends AppCompatActivity implements View.OnClickListener {
     EditText FullName;
     EditText Password;
@@ -16,6 +20,8 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     Button Connect;
     Button ForgotPassword;
     Button NewClient;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -39,15 +45,16 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
 
         @Override
         public void onClick (View view){
+
+
             if (view ==  NewClient) {
                 Intent intent = new Intent(this, RegisterNewClient.class);
                 startActivity(intent);
             }
-//            if (view == ForgotPassword) {
-//                Intent intent = new Intent(this, .class);
-//                startActivity(intent);
-//            }
+
+
             if (view == Connect) {
+
                 Intent intent = new Intent(this, ChooseCookingBakery.class);
                 startActivity(intent);
             }

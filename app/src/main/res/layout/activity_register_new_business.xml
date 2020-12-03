@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterNewBusiness">
+
     <EditText
         android:id="@+id/Name"
         android:layout_width="wrap_content"
@@ -12,8 +13,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="שם מלא"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="146dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
 
     <EditText
         android:id="@+id/Adress"
@@ -22,8 +27,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="כתובת העסק"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="210dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
 
     <EditText
         android:id="@+id/Password"
@@ -31,16 +40,21 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="סיסמא"
-        tools:layout_editor_absoluteX="257dp"
-        tools:layout_editor_absoluteY="355dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/Email"
@@ -49,8 +63,12 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text=" מייל"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.594" />
 
     <EditText
         android:id="@+id/Phone"
@@ -59,31 +77,47 @@
         android:ems="10"
         android:inputType="phone"
         android:text="מספר ליצירת קשר"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="279dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.399" />
 
     <TextView
         android:id="@+id/Text"
         android:layout_width="314dp"
         android:layout_height="50dp"
         android:text="אנא מלא את הפרטים הבאים על מנת להירשם:"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="62dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
 
     <Button
         android:id="@+id/Exist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="יש לי עסק"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="616dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
 
     <Button
         android:id="@+id/Update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="הירשם"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="478dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.714" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

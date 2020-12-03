@@ -10,7 +10,11 @@
         android:id="@+id/EditPage"
         android:layout_width="173dp"
         android:layout_height="66dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginLeft="232dp"
         android:text="עריכת עמוד"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="53dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
 </androidx.constraintlayout.widget.ConstraintLayout>
