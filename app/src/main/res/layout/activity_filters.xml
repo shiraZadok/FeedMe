@@ -11,191 +11,286 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text='0-100 ש"ח'
-        tools:layout_editor_absoluteX="261dp"
-        tools:layout_editor_absoluteY="462dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.609" />
 
     <CheckBox
         android:id="@+id/RamatHagolan"
         android:layout_width="108dp"
         android:layout_height="40dp"
         android:text="רמת הגולן"
-        tools:layout_editor_absoluteX="263dp"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.874"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098" />
 
     <TextView
         android:id="@+id/Prices"
         android:layout_width="119dp"
         android:layout_height="42dp"
         android:text="טווח מחירים"
-        tools:layout_editor_absoluteX="261dp"
-        tools:layout_editor_absoluteY="410dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.542" />
 
     <CheckBox
         android:id="@+id/until200"
         android:layout_width="126dp"
         android:layout_height="58dp"
         android:text='100-200 ש"ח'
-        tools:layout_editor_absoluteX="258dp"
-        tools:layout_editor_absoluteY="518dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.699" />
 
     <CheckBox
         android:id="@+id/until300"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text='200-300 ש"ח'
-        tools:layout_editor_absoluteX="261dp"
-        tools:layout_editor_absoluteY="587dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789" />
 
     <CheckBox
         android:id="@+id/until400"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text='300-400 ש"ח'
-        tools:layout_editor_absoluteX="261dp"
-        tools:layout_editor_absoluteY="624dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
     <CheckBox
         android:id="@+id/Unlimited"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ללא הגבלה"
-        tools:layout_editor_absoluteX="261dp"
-        tools:layout_editor_absoluteY="672dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
     <CheckBox
         android:id="@+id/Hazafone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור הצפון"
-        tools:layout_editor_absoluteX="266dp"
-        tools:layout_editor_absoluteY="141dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.169" />
 
     <CheckBox
         android:id="@+id/Jerusalem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור ירושלים"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="199dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.253" />
 
     <CheckBox
         android:id="@+id/Hasharon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור השרון"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="259dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/Unlimited"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.346" />
 
     <CheckBox
         android:id="@+id/TelAviv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור תל אביב"
-        tools:layout_editor_absoluteX="272dp"
-        tools:layout_editor_absoluteY="317dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417" />
 
     <CheckBox
         android:id="@+id/Hadarom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור הדרום"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="217dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.308" />
 
     <CheckBox
         android:id="@+id/Eilat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אילת"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="285dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401" />
 
     <TextView
         android:id="@+id/Place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור בארץ"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
 
     <CheckBox
         android:id="@+id/Delivery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="משלוח"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="587dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
 
     <CheckBox
         android:id="@+id/TakeAway"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="איסוף עצמי"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="651dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.849" />
 
     <TextView
         android:id="@+id/Categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="קטגוריות נוספות"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="108dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
 
     <CheckBox
         android:id="@+id/Kosher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="כשר"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="135dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.158" />
 
     <CheckBox
         android:id="@+id/Vegan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="טבעוני"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="173dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238" />
 
     <CheckBox
         android:id="@+id/GlutenFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:text="ללא גלוטן"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="231dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/Search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.331" />
 
     <CheckBox
         android:id="@+id/PenutsFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="276dp"
         android:text="ללא בוטנים"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="283dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/Parve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="פרווה"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="326dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487" />
 
     <CheckBox
         android:id="@+id/SugerFree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ללא סוכר"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="373dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.575" />
 
     <Button
         android:id="@+id/Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="חפש"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

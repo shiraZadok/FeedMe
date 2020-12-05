@@ -11,23 +11,35 @@
         android:layout_width="294dp"
         android:layout_height="263dp"
         android:text="House Cooking"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="62dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.801" />
 
     <Button
         android:id="@+id/HouseBakery"
         android:layout_width="292dp"
         android:layout_height="275dp"
         android:text="House Bakery"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="345dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162" />
 
     <Button
         android:id="@+id/ClientProfile"
-        android:layout_width="249dp"
-        android:layout_height="44dp"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
         android:text="הפרופיל שלי"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="10dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007" />
 </androidx.constraintlayout.widget.ConstraintLayout>

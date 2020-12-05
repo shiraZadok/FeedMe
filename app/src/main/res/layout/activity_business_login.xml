@@ -5,22 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BusinessLogin">
+
     <TextView
         android:id="@+id/textViewPassword"
         android:layout_width="109dp"
         android:layout_height="46dp"
         android:text="סיסמא"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="336dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267" />
 
     <Button
         android:id="@+id/Connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="התחבר"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="421dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.389" />
 
     <EditText
         android:id="@+id/FullName"
@@ -29,23 +38,34 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="שם מלא"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="218dp" />
+        app:layout_constraintBottom_toTopOf="@+id/Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.602" />
 
     <EditText
         android:id="@+id/Password"
-        android:layout_width="242dp"
-        android:layout_height="74dp"
+        android:layout_width="227dp"
+        android:layout_height="58dp"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
 
     <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="208dp"
-        tools:layout_editor_absoluteY="614dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </com.google.android.material.chip.ChipGroup>
 
@@ -55,8 +75,12 @@
         android:layout_height="43dp"
         android:text="שכחתי סיסמא"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="535dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
 
     <Button
         android:id="@+id/NewBusiness"
@@ -64,8 +88,12 @@
         android:layout_height="41dp"
         android:text="עוד לא פתחת עסק ? לחץ כאן"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="602dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
