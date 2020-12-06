@@ -5,12 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Filters extends AppCompatActivity implements View.OnClickListener {
 
+    //Spinner spinner;
     TextView Place;
     Button RamatHagolan;
     Button Hazafone;
@@ -45,6 +52,7 @@ public class Filters extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filters);
         Place=(TextView)findViewById(R.id.Place);
+
         RamatHagolan=(Button)findViewById(R.id.RamatHagolan);
         Hazafone=(Button)findViewById(R.id.Hazafone);
         Jerusalem=(Button)findViewById(R.id.Jerusalem);
@@ -53,7 +61,26 @@ public class Filters extends AppCompatActivity implements View.OnClickListener {
         Hadarom=(Button)findViewById(R.id.Hadarom);
         Eilat=(Button)findViewById(R.id.Eilat);
         Prices=(TextView)findViewById(R.id.Prices);
+        //spinner=(Spinner)findViewById(R.id.spinner);
 
+        List<String> listest= new ArrayList<>();
+        listest.add("Ramat Hagolan");
+        listest.add("Eilat");
+
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,listest);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //spinner.setAdapter(adapter);
+        //spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String itemvalue=parent.getItemAtPosition(position).toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
         until200=(Button)findViewById(R.id.until200);
         until300=(Button)findViewById(R.id.until300);
         until400=(Button)findViewById(R.id.until400);

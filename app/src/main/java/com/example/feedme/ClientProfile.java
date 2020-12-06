@@ -23,14 +23,22 @@ public class ClientProfile extends AppCompatActivity implements View.OnClickList
     TextView C_Adress;
     TextView C_Password;
     TextView C_Email;
+    TextView textViewPassword;
+    TextView textViewAdress;
+    TextView textViewPhone;
+    TextView textViewEmail;
+    TextView textViewName;
+    String id_of_client;
 
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent=getIntent();
+        id_of_client= intent.getExtras().getString("id");
         rootNode=FirebaseDatabase.getInstance();
-        reference=rootNode.getReference("Cients/-MNdagUIsiF1NYQsa6XL");
+        reference=rootNode.getReference("Cients/"+id_of_client);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -54,11 +62,16 @@ public class ClientProfile extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_profile);
         UpdateDetails=(Button)findViewById(R.id.UpdateDetails);
-        C_Name=(TextView)findViewById(R.id.C_Name);
-        C_Adress=(TextView)findViewById(R.id.C_Adress);
-        C_Email=(TextView)findViewById(R.id.C_Email);
-        C_Phone=(TextView)findViewById(R.id.C_Phone);
-        C_Password=(TextView)findViewById(R.id.C_Password);
+        C_Name=(TextView)findViewById(R.id.B_Name);
+        C_Adress=(TextView)findViewById(R.id.B_Adress);
+        C_Email=(TextView)findViewById(R.id.B_Email);
+        C_Phone=(TextView)findViewById(R.id.B_Phone);
+        C_Password=(TextView)findViewById(R.id.B_Password);
+        textViewPassword=(TextView) findViewById(R.id.textViewPassword);
+        textViewAdress=(TextView) findViewById(R.id.textViewAdress);
+        textViewPhone=(TextView) findViewById(R.id.textViewPhone);
+        textViewEmail=(TextView) findViewById(R.id.textViewMail);
+        textViewName=(TextView) findViewById(R.id.textViewName);
 
         UpdateDetails.setOnClickListener(this);
     }
@@ -67,6 +80,7 @@ public class ClientProfile extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view ==  UpdateDetails) {
             Intent intent = new Intent(this, UpdateClientDetails.class);
+            intent.putExtra("id",id_of_client);
             startActivity(intent);
         }
     }

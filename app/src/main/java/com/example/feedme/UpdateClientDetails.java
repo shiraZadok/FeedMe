@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +26,11 @@ public class UpdateClientDetails extends AppCompatActivity  implements View.OnCl
     EditText Email;
     EditText Phone;
     Button Update;
+    TextView textViewPassword;
+    TextView textViewAdress;
+    TextView textViewPhone;
+    TextView textViewEmail;
+    TextView textViewName;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     public String newname;
@@ -32,9 +38,17 @@ public class UpdateClientDetails extends AppCompatActivity  implements View.OnCl
     public String newemail;
     public String newadress;
     public String newpassword;
+    String id_of_client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("#####");
+        Intent intent=getIntent();
+        id_of_client= intent.getExtras().getString("id");
+
+        System.out.println("id of client="+id_of_client);
+        System.out.println("####");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_client_details);
         Name = (EditText)findViewById(R.id.Name);
@@ -43,11 +57,16 @@ public class UpdateClientDetails extends AppCompatActivity  implements View.OnCl
         Email = (EditText)findViewById(R.id.Email);
         Phone = (EditText)findViewById(R.id.Phone);
         Update=(Button)findViewById(R.id.Update);
+        textViewPassword=(TextView) findViewById(R.id.textViewPassword);
+        textViewAdress=(TextView) findViewById(R.id.textViewAdress);
+        textViewPhone=(TextView) findViewById(R.id.textViewPhone);
+        textViewEmail=(TextView) findViewById(R.id.textViewMail);
+        textViewName=(TextView) findViewById(R.id.textViewName);
 
 
         Update.setOnClickListener(this);
         rootNode=FirebaseDatabase.getInstance();
-        reference=rootNode.getReference("Cients/-MNdagUIsiF1NYQsa6XL");
+        reference=rootNode.getReference("Cients/"+id_of_client);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -91,8 +110,10 @@ public class UpdateClientDetails extends AppCompatActivity  implements View.OnCl
                 newemail=Email.getText().toString();
             }
             Client newclient=new Client(newname, newpassword,newadress, newemail, newphone);
+            newclient.id=id_of_client;
             reference.setValue(newclient);
             Intent intent = new Intent(this, ChooseCookingBakery.class);
+            intent.putExtra("id",id_of_client);
             startActivity(intent);
         }
     }
