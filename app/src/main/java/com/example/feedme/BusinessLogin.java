@@ -68,7 +68,9 @@ public class BusinessLogin extends AppCompatActivity implements View.OnClickList
                         String name = (String) postSnapshot.child("BName").getValue().toString();
                         String password = (String) postSnapshot.child("BPassword").getValue().toString();
                         if(name.equals(FullName.getText().toString())&&password.equals(Password.getText().toString())){
+                            String Bid = (String) postSnapshot.child("Bid").getValue().toString();
                             Intent intent = new Intent(BusinessLogin.this, BusinessPage.class);
+                            intent.putExtra("Bid", Bid);
                             startActivity(intent);
                             break;
                         }

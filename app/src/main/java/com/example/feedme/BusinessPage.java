@@ -28,13 +28,16 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
     TextView B_Adress;
     TextView B_Password;
     TextView B_Email;
+    String  id_of_business;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent=getIntent();
+        id_of_business = intent.getExtras().getString("Bid");
         rootNode= FirebaseDatabase.getInstance();
-        reference=rootNode.getReference("Business/-MNdg4r_ed8NO_oTEkrL");
+        reference=rootNode.getReference("Business/"+id_of_business);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -75,6 +78,7 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view ==  EditPage) {
             Intent intent = new Intent(this, EditPageBusiness.class);
+            intent.putExtra("Bid",id_of_business);
             startActivity(intent);
         }
     }

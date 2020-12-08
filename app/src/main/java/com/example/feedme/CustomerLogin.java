@@ -66,7 +66,6 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                             String password = (String) postSnapshot.child("Password").getValue().toString();
                             if(name.equals(FullName.getText().toString())&&password.equals(Password.getText().toString())){
                                 String id = (String) postSnapshot.child("id").getValue().toString();
-                                System.out.println("***************id="+id);
                                 Intent intent = new Intent(CustomerLogin.this, ChooseCookingBakery.class);
                                 intent.putExtra("id", id);
                                 startActivity(intent);

@@ -17,7 +17,6 @@ public class ChooseCookingBakery extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent=getIntent();
         id_of_client = intent.getExtras().getString("id");
-        System.out.println("?????????????id="+id_of_client);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_cooking_bakery);
         HouseCooking=(Button)findViewById(R.id.HouseCooking);

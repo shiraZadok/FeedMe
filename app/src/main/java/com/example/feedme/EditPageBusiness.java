@@ -20,7 +20,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
 
     EditText OnUs;
     Button UpdateProducts;
-    Button UpdateGallery;
+    Button MyOrders;
     EditText FullName;
     EditText Password;
     EditText Adress;
@@ -40,11 +40,15 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
     public String newemail;
     public String newadress;
     public String newpassword;
+    String  id_of_business;
     //public String newonus;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent=getIntent();
+        id_of_business = intent.getExtras().getString("Bid");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_page_business);
         OnUs = (EditText)findViewById(R.id.OnUs);
@@ -55,7 +59,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
         Phone = (EditText)findViewById(R.id. Phone);
         textViewPassword = (TextView)findViewById(R.id.textViewPassword);
         UpdateProducts=(Button)findViewById(R.id.UpdateProducts);
-        UpdateGallery=(Button)findViewById(R.id.UpdateGallery);
+        MyOrders=(Button)findViewById(R.id.MyOrders);
         SaveUpdate=(Button)findViewById(R.id.SaveUpdate);
         textViewAdress=(TextView) findViewById(R.id.textViewAdress);
         textViewPhone=(TextView) findViewById(R.id.textViewPhone);
@@ -64,7 +68,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
         textViewOnUs=(TextView) findViewById(R.id.textViewOnUs);
 
         rootNode=FirebaseDatabase.getInstance();
-        reference=rootNode.getReference("Business/-MNdg4r_ed8NO_oTEkrL");
+        reference=rootNode.getReference("Business/"+id_of_business);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -73,7 +77,6 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
                 newemail=(String)snapshot.child("BEmail").getValue().toString();
                 newadress=(String)snapshot.child("BAdress").getValue().toString();
                 newpassword=(String)snapshot.child("BPassword").getValue().toString();
-                //newonus=(String)snapshot.child("BPassword").getValue().toString();
             }
 
             @Override
@@ -83,15 +86,14 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
         });
 
         UpdateProducts.setOnClickListener(this);
-        UpdateGallery.setOnClickListener(this);
+        MyOrders.setOnClickListener(this);
         SaveUpdate.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-//        rootNode=FirebaseDatabase.getInstance();
-//        reference=rootNode.getReference();
+
         if (view ==  SaveUpdate) {
             if(!FullName.getText().toString().isEmpty()) {
                 newname=FullName.getText().toString();
@@ -112,19 +114,23 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
 //                newonus=OnUs.getText().toString();
 //            }
             Business newbusiness=new Business(newname, newpassword,newadress, newemail, newphone);
-            newbusiness.Bid="-MNdg4r_ed8NO_oTEkrL";
+            newbusiness.Bid= id_of_business;;
             reference.setValue(newbusiness);
             //Business business=new Business(Name.getText().toString(), Password.getText().toString(), Adress.getText().toString(), Email.getText().toString(), Phone.getText().toString());
             Intent intent = new Intent(this, BusinessPage.class);
+            intent.putExtra("Bid",id_of_business);
             startActivity(intent);
         }
-//        if (view ==  UpdateGallery) {
-//            Intent intent = new Intent(this, t.class);
+        if (view ==  UpdateProducts) {
+            Intent intent = new Intent(this, UpdateProduct.class);
+            intent.putExtra("Bid",id_of_business);
+            startActivity(intent);
+        }
+        if (view ==  MyOrders) {
+//            Intent intent = new Intent(this, UpdateProduct.class);
+//            intent.putExtra("Bid",id_of_business);
 //            startActivity(intent);
-//        }
-//        if (view ==  UpdateDetailsBusiness) {
-//            Intent intent = new Intent(this, .class);
-//            startActivity(intent);
-//        }
+        }
+
     }
 }

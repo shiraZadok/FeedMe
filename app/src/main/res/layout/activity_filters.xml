@@ -241,7 +241,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="ללא גלוטן"
-        app:layout_constraintBottom_toBottomOf="@+id/Search"
+        app:layout_constraintBottom_toBottomOf="@+id/UpdateProductButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.331" />
@@ -282,7 +282,7 @@
         app:layout_constraintVertical_bias="0.575" />
 
     <Button
-        android:id="@+id/Search"
+        android:id="@+id/UpdateProductButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="חפש"
@@ -292,14 +292,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.953" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="335dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
