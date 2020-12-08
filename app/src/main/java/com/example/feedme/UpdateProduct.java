@@ -41,11 +41,13 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         Intent intent=getIntent();
         id_of_business = intent.getExtras().getString("Bid");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_product);
         imgView=(ImageView)findViewById(R.id.imgView);
+
         imgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,28 +94,36 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         rootNode= FirebaseDatabase.getInstance();
         reference=rootNode.getReference();
+        System.out.println("referener product $$$$$$$$$"+reference);
+
+        Vector <String> category=new Vector <String>();
+        if(Kosher.getText().toString()!=null){
+            category.add("Kosher");
+        }
+        if(SugerFree.getText().toString()!=null){
+            category.add("SugerFree");
+        }
+        if(GlutenFree.getText().toString()!=null){
+            category.add("GlutenFree");
+        }
+        if(Parve.getText().toString()!=null){
+            category.add("Parve");
+        }
+        if(PenutsFree.getText().toString()!=null){
+            category.add("PenutsFree");
+        }
+        if(Vegan.getText().toString()!=null){
+            category.add("Vegan");
+        }
+   //     Product newproduct=new Product("ggg", "555","100",null ,id_of_business);
+       Product newproduct=new Product(ProductInfo.getText().toString(), NumProduct.getText().toString(),Price.getText().toString(),category ,id_of_business);
+
+        newproduct.id=reference.push().getKey();
+
+
         if(view==UpdateProductButton){
-            Vector <String> category=new Vector <String>();
-            if(Kosher.getText().toString()!=null){
-                category.add("Kosher");
-            }
-            if(SugerFree.getText().toString()!=null){
-                category.add("SugerFree");
-            }
-            if(GlutenFree.getText().toString()!=null){
-                category.add("GlutenFree");
-            }
-            if(Parve.getText().toString()!=null){
-                category.add("Parve");
-            }
-            if(PenutsFree.getText().toString()!=null){
-                category.add("PenutsFree");
-            }
-            if(Vegan.getText().toString()!=null){
-                category.add("Vegan");
-            }
-            Product newproduct=new Product(ProductInfo.getText().toString(), NumProduct.getText().toString(),Price.getText().toString(),category ,id_of_business);
-            reference.child("Products").child(newproduct.id_of_business).setValue(newproduct);
+             reference.child("Products").child(newproduct.id).setValue(newproduct);
+
             Intent intent=new Intent(this,EditPageBusiness.class);
             intent.putExtra("Bid",id_of_business);
             startActivity(intent);

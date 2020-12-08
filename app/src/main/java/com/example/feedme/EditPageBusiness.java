@@ -121,7 +121,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
         if (view ==  UpdateProducts) {
-            Intent intent = new Intent(this, UpdateProduct.class);
+            Intent intent = new Intent(this,ProductToUpdate.class);  //UpdateProduct
             intent.putExtra("Bid",id_of_business);
             startActivity(intent);
         }

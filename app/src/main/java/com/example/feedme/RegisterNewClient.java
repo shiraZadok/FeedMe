@@ -55,6 +55,7 @@ public class RegisterNewClient extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         rootNode=FirebaseDatabase.getInstance();
         reference=rootNode.getReference();
+        System.out.println("referener client $$$$$$$$$"+reference);
         Client client=new Client(Name.getText().toString(), Password.getText().toString(), Adress.getText().toString(), Email.getText().toString(), Phone.getText().toString());
         client.id=reference.push().getKey();
 
