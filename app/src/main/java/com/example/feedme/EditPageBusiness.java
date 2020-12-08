@@ -20,7 +20,6 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
 
     EditText OnUs;
     Button UpdateProducts;
-    Button MyOrders;
     EditText FullName;
     EditText Password;
     EditText Adress;
@@ -59,7 +58,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
         Phone = (EditText)findViewById(R.id. Phone);
         textViewPassword = (TextView)findViewById(R.id.textViewPassword);
         UpdateProducts=(Button)findViewById(R.id.UpdateProducts);
-        MyOrders=(Button)findViewById(R.id.MyOrders);
+
         SaveUpdate=(Button)findViewById(R.id.SaveUpdate);
         textViewAdress=(TextView) findViewById(R.id.textViewAdress);
         textViewPhone=(TextView) findViewById(R.id.textViewPhone);
@@ -86,7 +85,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
         });
 
         UpdateProducts.setOnClickListener(this);
-        MyOrders.setOnClickListener(this);
+
         SaveUpdate.setOnClickListener(this);
 
     }
@@ -126,11 +125,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
             intent.putExtra("Bid",id_of_business);
             startActivity(intent);
         }
-        if (view ==  MyOrders) {
-//            Intent intent = new Intent(this, UpdateProduct.class);
-//            intent.putExtra("Bid",id_of_business);
-//            startActivity(intent);
-        }
+
 
     }
 }

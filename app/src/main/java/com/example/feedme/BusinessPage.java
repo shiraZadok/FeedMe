@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 public class BusinessPage extends AppCompatActivity implements View.OnClickListener {
 
     Button EditPage;
+    Button MyOrders;
     TextView textViewPassword;
     TextView textViewAdress;
     TextView textViewPhone;
@@ -61,6 +62,7 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_page);
         EditPage=(Button)findViewById(R.id.EditPage);
+        MyOrders=(Button)findViewById(R.id.myOrders);
         EditPage.setOnClickListener(this);
         B_Name=(TextView)findViewById(R.id.B_Name);
         B_Adress=(TextView)findViewById(R.id.B_Adress);
@@ -72,6 +74,7 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
         textViewPhone=(TextView) findViewById(R.id.textViewPhone);
         textViewEmail=(TextView) findViewById(R.id.textViewMail);
         textViewName=(TextView) findViewById(R.id.textViewName);
+        MyOrders.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +83,11 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, EditPageBusiness.class);
             intent.putExtra("Bid",id_of_business);
             startActivity(intent);
+        }
+        if (view ==  MyOrders) {
+//            Intent intent = new Intent(this, EditPageBusiness.class);
+//            intent.putExtra("Bid",id_of_business);
+//            startActivity(intent);
         }
     }
 }

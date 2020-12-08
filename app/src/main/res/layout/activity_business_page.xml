@@ -7,6 +7,18 @@
     tools:context=".BusinessPage">
 
     <Button
+        android:id="@+id/myOrders"
+        android:layout_width="139dp"
+        android:layout_height="78dp"
+        android:text="הזמנות שלי"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <Button
         android:id="@+id/EditPage"
         android:layout_width="173dp"
         android:layout_height="66dp"

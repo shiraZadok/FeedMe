@@ -13,7 +13,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.IOException;
+import java.util.Vector;
 
 public class UpdateProduct extends AppCompatActivity implements View.OnClickListener{
 
@@ -32,6 +36,8 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
     Button Parve;
     Button SugerFree;
     String id_of_business;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +90,30 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+        rootNode= FirebaseDatabase.getInstance();
+        reference=rootNode.getReference();
         if(view==UpdateProductButton){
+            Vector <String> category=new Vector <String>();
+            if(Kosher.getText().toString()!=null){
+                category.add("Kosher");
+            }
+            if(SugerFree.getText().toString()!=null){
+                category.add("SugerFree");
+            }
+            if(GlutenFree.getText().toString()!=null){
+                category.add("GlutenFree");
+            }
+            if(Parve.getText().toString()!=null){
+                category.add("Parve");
+            }
+            if(PenutsFree.getText().toString()!=null){
+                category.add("PenutsFree");
+            }
+            if(Vegan.getText().toString()!=null){
+                category.add("Vegan");
+            }
+            Product newproduct=new Product(ProductInfo.getText().toString(), NumProduct.getText().toString(),Price.getText().toString(),category ,id_of_business);
+            reference.child("Products").child(newproduct.id_of_business).setValue(newproduct);
             Intent intent=new Intent(this,EditPageBusiness.class);
             intent.putExtra("Bid",id_of_business);
             startActivity(intent);
