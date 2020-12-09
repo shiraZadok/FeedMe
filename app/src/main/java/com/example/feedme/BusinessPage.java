@@ -85,9 +85,9 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if (view ==  MyOrders) {
-//            Intent intent = new Intent(this, EditPageBusiness.class);
-//            intent.putExtra("Bid",id_of_business);
-//            startActivity(intent);
+            Intent intent = new Intent(this, BusinessOrders.class);
+            intent.putExtra("Bid",id_of_business);
+            startActivity(intent);
         }
     }
 }

@@ -1,32 +1,18 @@
 package com.example.feedme;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-
-public class Order extends AppCompatActivity implements View.OnClickListener{
-
-    EditText OrderDetails;
-    Button Orderbutton;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order);
-        OrderDetails = (EditText)findViewById(R.id.OrderDetails);
-        Orderbutton=(Button)findViewById(R.id.Orderbutton);
-
-        Orderbutton.setOnClickListener(this);
+public class Order {
+    public String id_of_business_item;
+    public String num_product;
+    public String id_order;
+    public Order(String id_of_business_item, String num_product) {
+        this.id_of_business_item=id_of_business_item;
+        this.num_product=num_product;
     }
+    public Order(){
 
+    }
     @Override
-    public void onClick(View view) {
-        if (view ==  Orderbutton) {
-            Intent intent = new Intent(this, CustomerOrderDetails.class);
-            startActivity(intent);
-        }
+    public String toString(){
+        return "num_product= "+num_product+",id_order= "+id_order;
     }
 }

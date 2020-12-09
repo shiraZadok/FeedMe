@@ -33,6 +33,6 @@ public class Product {
     @Override
     public String toString(){
         String answer=this.category.toString();
-        return "Num of Product="+this.numProduct+" , Product Info="+this.ProductInfo+", id="+id+", Price="+Price+", Aditional Information"+answer;
+        return "Num of Product="+this.numProduct+"id_of_business="+id_of_business+" , Product Info="+this.ProductInfo+", id="+id+", Price="+Price+", Aditional Information"+answer;
     }
 }

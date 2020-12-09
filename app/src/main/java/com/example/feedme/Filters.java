@@ -87,10 +87,10 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
 
 
     }
-    List<String> ChooseDel= new ArrayList<>();
-    List<String> ChoosePlace= new ArrayList<>();
-    List<String> ChoosePrice= new ArrayList<>();
-    List<String> ChooseCategories= new ArrayList<>();
+    ArrayList<String> ChooseDel= new ArrayList<>();
+    ArrayList<String> ChoosePlace= new ArrayList<>();
+    ArrayList<String> ChoosePrice= new ArrayList<>();
+    ArrayList<String> ChooseCategories= new ArrayList<>();
 
     @Override
     public void onClick(View view) {
@@ -161,10 +161,10 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
             System.out.println("******************************"+ChoosePlace.toString());
             System.out.println("******************************"+ChoosePrice.toString());
             Intent intent=new Intent(this,Options.class);
-            intent.putExtra("ChooseCategories",  ChooseCategories.toArray());
-            intent.putExtra("ChooseDel", ChooseDel.toArray());
-            intent.putExtra("ChoosePlace",  ChoosePlace.toArray());
-            intent.putExtra("ChoosePrice", ChoosePrice.toArray());
+            intent.putExtra("ChooseCategories",  ChooseCategories);
+            intent.putExtra("ChooseDel", ChooseDel);
+            intent.putExtra("ChoosePlace",  ChoosePlace);
+            intent.putExtra("ChoosePrice", ChoosePrice);
             startActivity(intent);
         }
     }
