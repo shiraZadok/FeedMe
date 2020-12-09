@@ -1,5 +1,6 @@
 package com.example.feedme;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,8 +14,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,12 +45,20 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
+    String newPrice="";
+    String newProductInfo="";
+    String newcategory="";
+    String newid="";
+    String newid_of_business="";
+    String newnumProduct="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         Intent intent=getIntent();
         id_of_Product = intent.getExtras().getString("Pid");
         id_of_business = intent.getExtras().getString("Bid");
+        System.out.println("id_of_Product"+id_of_Product+",id_of_business="+id_of_business);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_product);
         imgView=(ImageView)findViewById(R.id.imgView);
@@ -74,6 +86,28 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
         UpdateProductButton=(Button)findViewById(R.id.UpdateProductButton);
 
         UpdateProductButton.setOnClickListener(this);
+        //////  new
+        rootNode=FirebaseDatabase.getInstance();
+        reference=rootNode.getReference("Products/"+id_of_Product);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if( snapshot.getChildrenCount()!=0) {
+                    newPrice = (String) snapshot.child("Price").getValue().toString();
+                    newProductInfo = (String) snapshot.child("ProductInfo").getValue().toString();
+                    newcategory = (String) snapshot.child("category").getValue().toString();
+                    newid = (String) snapshot.child("id").getValue().toString();
+                    newid_of_business = (String) snapshot.child("id_of_business").getValue().toString();
+                    newnumProduct = (String) snapshot.child("numProduct").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        ////////////////////
 
 
     }
@@ -100,31 +134,43 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
         System.out.println("referener product $$$$$$$$$"+reference);
 
         ArrayList<String> category=new ArrayList<String>();
-        if(Kosher.getText().toString()!=null){
+        if(!Kosher.getText().toString().isEmpty()){
             category.add("Kosher");
         }
-        if(SugerFree.getText().toString()!=null){
+        if(!SugerFree.getText().toString().isEmpty()){
             category.add("SugerFree");
         }
-        if(GlutenFree.getText().toString()!=null){
+        if(!GlutenFree.getText().toString().isEmpty()){
             category.add("GlutenFree");
         }
-        if(Parve.getText().toString()!=null){
+        if(!Parve.getText().toString().isEmpty()){
             category.add("Parve");
         }
-        if(PenutsFree.getText().toString()!=null){
+        if(!PenutsFree.getText().toString().isEmpty()){
             category.add("PenutsFree");
         }
-        if(Vegan.getText().toString()!=null){
+        if(!Vegan.getText().toString().isEmpty()){
             category.add("Vegan");
         }
-   //     Product newproduct=new Product("ggg", "555","100",null ,id_of_business);
-       Product newproduct=new Product(ProductInfo.getText().toString(), NumProduct.getText().toString(),Price.getText().toString(),category ,id_of_business);
 
-        newproduct.id=reference.push().getKey();
+        if(!Price.getText().toString().isEmpty()) {
+            newPrice=Price.getText().toString();
+        }
+        if(!ProductInfo.getText().toString().isEmpty()) {
+            newProductInfo=ProductInfo.getText().toString();
+        }
+        if(!NumProduct.getText().toString().isEmpty()) {
+            newnumProduct=NumProduct.getText().toString();
+        }
+   //     Product newproduct=new Product("ggg", "555","100",null ,id_of_business);
+       Product newproduct=new Product(newProductInfo,  newnumProduct,newPrice,category ,id_of_business);
+
+       // newproduct.id=reference.push().getKey();
+        newproduct.id=id_of_Product;
 
 
         if(view==UpdateProductButton){
+            System.out.println("new product to string= "+newproduct.toString());
              reference.child("Products").child(newproduct.id).setValue(newproduct);
 
             Intent intent=new Intent(this,EditPageBusiness.class);

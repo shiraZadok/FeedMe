@@ -19,14 +19,16 @@
         <ListView
             android:id="@+id/MyProducts"
             android:layout_width="match_parent"
-            android:layout_height="634dp" />
+            android:layout_height="634dp" >
+
+        </ListView>
     </LinearLayout>
 
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.141"
@@ -38,12 +40,20 @@
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.751"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.048" />
+
+    <Button
+        android:id="@+id/btnAddNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NewProduct"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="103dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

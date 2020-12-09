@@ -34,7 +34,7 @@ public class ProductToUpdate extends AppCompatActivity {
     String id_business;
     ArrayList<String> arrayList=new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
-    Button btnUpdate,btnCancel;
+    Button btnUpdate,btnCancel,btnAddNew;
     public String item;
     public String id_of_item;
 
@@ -66,7 +66,7 @@ public class ProductToUpdate extends AppCompatActivity {
 
         btnUpdate=(Button) findViewById(R.id.btnUpdate);
         btnCancel= (Button) findViewById(R.id.btnCancel) ;
-
+        btnAddNew= (Button) findViewById(R.id.btnAddNew) ;
         arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList);
         MyProducts.setAdapter(arrayAdapter);
         reference.addChildEventListener(new ChildEventListener() {
@@ -123,6 +123,18 @@ public class ProductToUpdate extends AppCompatActivity {
 
                 Intent intphto =new Intent(getApplicationContext(),UpdateProduct.class);
                 intphto.putExtra("Pid",id_of_item);  //id of product
+                intphto.putExtra("Bid",id_business);
+                startActivity(intphto);
+            }
+        });
+
+        btnAddNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intphto =new Intent(getApplicationContext(),UpdateProduct.class);
+                String id_new_Product=reference.push().getKey();
+                intphto.putExtra("Pid",id_new_Product);  //id of product
                 intphto.putExtra("Bid",id_business);
                 startActivity(intphto);
             }

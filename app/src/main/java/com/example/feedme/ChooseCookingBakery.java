@@ -34,10 +34,10 @@ public class ChooseCookingBakery extends AppCompatActivity implements View.OnCli
             Intent intent = new Intent(this, Filters.class);
             startActivity(intent);
         }
-//        if (view ==  HouseBakery) {
-//            Intent intent = new Intent(this, .class);
-//            startActivity(intent);
-//        }
+        if (view ==  HouseBakery) {
+            Intent intent = new Intent(this, Filters.class);
+            startActivity(intent);
+        }
         if (view ==  ClientProfile) {
 
             Intent intent = new Intent(this, ClientProfile.class);
