@@ -36,6 +36,7 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
     Button PenutsFree;
     Button Parve;
     Button SugerFree;
+    String id_of_Product;
     String id_of_business;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -44,6 +45,7 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
 
         Intent intent=getIntent();
+        id_of_Product = intent.getExtras().getString("Pid");
         id_of_business = intent.getExtras().getString("Bid");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_product);
