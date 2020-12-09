@@ -6,10 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ProductToUpdate">
 
-    <ListView
-        android:id="@+id/MyProducts"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="118dp" />
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="156dp">
+
+        <ListView
+            android:id="@+id/MyProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

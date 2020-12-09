@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class UpdateProduct extends AppCompatActivity implements View.OnClickListener{
@@ -96,7 +97,7 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
         reference=rootNode.getReference();
         System.out.println("referener product $$$$$$$$$"+reference);
 
-        Vector <String> category=new Vector <String>();
+        ArrayList<String> category=new ArrayList<String>();
         if(Kosher.getText().toString()!=null){
             category.add("Kosher");
         }
