@@ -34,10 +34,12 @@ public class ChooseCookingBakery extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view ==  HouseCooking) {
             Intent intent = new Intent(this, Filters.class);
+            intent.putExtra("id",id_of_client);
             startActivity(intent);
         }
         if (view ==  HouseBakery) {
             Intent intent = new Intent(this, Filters.class);
+            intent.putExtra("id",id_of_client);
             startActivity(intent);
         }
         if (view ==  ClientProfile) {

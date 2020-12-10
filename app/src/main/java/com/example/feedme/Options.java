@@ -31,6 +31,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     public String item;
     public String id_of_business_item;
     public String num_item;
+    public String id_of_client;
 
 
     ArrayList<String> ChooseDel= new ArrayList<>();
@@ -50,7 +51,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
             answer+=name.charAt(index_id);
             index_id++;
         }
-        System.out.println("mmmmmmmmmm"+answer);
+        System.out.println("id of busniess item is ????="+answer);
         return answer;
     }
     @Override
@@ -60,6 +61,8 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
         ChooseDel = intent.getExtras().getStringArrayList(("ChooseDel"));
         ChoosePlace = intent.getExtras().getStringArrayList("ChoosePlace");
         ChoosePrice = intent.getExtras().getStringArrayList("ChoosePrice");
+        id_of_client= intent.getExtras().getString("id");
+
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Products");
@@ -136,6 +139,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
             Intent intent= new Intent(this,CustomerOrderDetails.class);
             intent.putExtra("Num_Product",num_item);
             intent.putExtra("id_of_business_item",id_of_business_item);
+            intent.putExtra("id_of_client",id_of_client);
             startActivity(intent);
 
 

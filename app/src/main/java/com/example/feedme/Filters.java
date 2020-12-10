@@ -47,9 +47,12 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
     CheckBox SugerFree;
 
     Button Search;
+    public String id_of_client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent=getIntent();
+        id_of_client= intent.getExtras().getString("id");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filters);
         Place=(TextView)findViewById(R.id.Place);
@@ -167,6 +170,7 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
             intent.putExtra("ChooseDel", ChooseDel);
             intent.putExtra("ChoosePlace",  ChoosePlace);
             intent.putExtra("ChoosePrice", ChoosePrice);
+            intent.putExtra("id", id_of_client);
             startActivity(intent);
         }
     }

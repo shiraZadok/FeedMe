@@ -30,16 +30,19 @@ public class CustomerOrderDetails extends AppCompatActivity implements View.OnCl
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
-    public String newname;
-    public String newphone;
-    public String newemail;
-    public String newadress;
-    public String newremark;
+    public String oldname;
+    public String oldphone;
+    public String oldemail;
+    public String oldadress;
+    public String oldremark;
+    public String id_of_client;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent=getIntent();
         Num_Product = intent.getExtras().getString("Num_Product");
         id_of_business_item = intent.getExtras().getString("id_of_business_item");
+        id_of_client = intent.getExtras().getString("id_of_client");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order_details);
         FullName = (EditText)findViewById(R.id.FullName);
@@ -51,36 +54,52 @@ public class CustomerOrderDetails extends AppCompatActivity implements View.OnCl
         Payment.setOnClickListener(this);
 
         rootNode= FirebaseDatabase.getInstance();
-        reference=rootNode.getReference();
+        reference=rootNode.getReference("Cients/"+id_of_client);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                newname=FullName.getText().toString();
-                newphone=PhoneNumber.getText().toString();
-                newemail=Email.getText().toString();
-                newadress=Adress.getText().toString();
-                newremark=Remarks.getText().toString();
+                oldname=(String)snapshot.child("Name").getValue().toString();
+                oldphone=(String)snapshot.child("Phone").getValue().toString();
+                oldemail=(String)snapshot.child("Email").getValue().toString();
+                oldadress=(String)snapshot.child("Adress").getValue().toString();
+                //oldremark=(String)snapshot.child("").getValue().toString();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
         });
     }
 
 
+
     @Override
     public void onClick(View view) {
+        reference=rootNode.getReference("Orders/");
 
         if (view ==  Payment) {
-            Order newOrder=new Order(id_of_business_item,Num_Product,newname,newphone,newadress,newremark,newemail);
+            if(!FullName.getText().toString().isEmpty()) {
+                oldname=FullName.getText().toString();
+            }
+            if(!PhoneNumber.getText().toString().isEmpty()) {
+                oldphone=PhoneNumber.getText().toString();
+            }
+            if(!Adress.getText().toString().isEmpty()) {
+                oldadress=Adress.getText().toString();
+            }
+
+            if(!Email.getText().toString().isEmpty()) {
+                oldemail=Email.getText().toString();
+            }
+            Order newOrder=new Order(id_of_business_item,Num_Product,oldname,oldphone,oldadress,oldemail);
             String id_of_order=reference.push().getKey();
             newOrder.id_order=id_of_order;
 
 
-            reference.child("Orders").child(newOrder.id_order).setValue(newOrder);
+            reference.child(newOrder.id_order).setValue(newOrder);
             Intent intent = new Intent(this, Payment.class);
             startActivity(intent);
         }
