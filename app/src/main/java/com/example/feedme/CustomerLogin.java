@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CustomerLogin extends AppCompatActivity implements View.OnClickListener {
     EditText FullName;
     EditText Password;
-    TextView textViewPassword;
+
     Button Connect;
     Button ForgotPassword;
     Button NewClient;
@@ -35,7 +35,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_customer_login);
             FullName = (EditText)findViewById(R.id.FullName);
-            textViewPassword=(TextView)findViewById(R.id.textViewPassword);
+
             Password = (EditText)findViewById(R.id.Password);
             Connect=(Button)findViewById(R.id.Connect);
             ForgotPassword = (Button)findViewById(R.id.ForgotPassword);

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -62,6 +63,7 @@ public class RegisterNewClient extends AppCompatActivity implements View.OnClick
         if (view ==  Create ) {
             reference.child("Cients").child(client.id).setValue(client);
             Intent intent = new Intent(this, CustomerLogin.class);
+            Toast.makeText( this," You are now registered",Toast.LENGTH_LONG).show();
             startActivity(intent);
         }
         if (view == Exist) {

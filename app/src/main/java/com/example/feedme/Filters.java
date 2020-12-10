@@ -34,6 +34,7 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
     CheckBox until100;
     CheckBox Unlimited;
 
+    TextView textDel;
     CheckBox Delivery;
     CheckBox TakeAway;
 
@@ -68,6 +69,7 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
         until100=(CheckBox)findViewById(R.id.until100);
         Unlimited=(CheckBox)findViewById(R.id.Unlimited);
 
+        textDel=(TextView)findViewById(R.id.textDel);
         Delivery=(CheckBox)findViewById(R.id. Delivery);
         TakeAway=(CheckBox)findViewById(R.id.TakeAway);
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,6 +48,7 @@ public class RegisterNewBusiness extends AppCompatActivity implements View.OnCli
         if (view ==  Create ) {
             reference.child("Business").child(business.Bid).setValue(business);
             Intent intent = new Intent(this,BusinessLogin.class);
+            Toast.makeText( this," Your business is registered",Toast.LENGTH_LONG).show();
             startActivity(intent);
         }
         if ( view == Exist) {

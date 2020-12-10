@@ -23,11 +23,7 @@ public class ClientProfile extends AppCompatActivity implements View.OnClickList
     TextView C_Adress;
     TextView C_Password;
     TextView C_Email;
-    TextView textViewPassword;
-    TextView textViewAdress;
-    TextView textViewPhone;
-    TextView textViewEmail;
-    TextView textViewName;
+
     String id_of_client;
 
 
@@ -67,11 +63,7 @@ public class ClientProfile extends AppCompatActivity implements View.OnClickList
         C_Email=(TextView)findViewById(R.id.B_Email);
         C_Phone=(TextView)findViewById(R.id.B_Phone);
         C_Password=(TextView)findViewById(R.id.B_Password);
-        textViewPassword=(TextView) findViewById(R.id.textViewPassword);
-        textViewAdress=(TextView) findViewById(R.id.textViewAdress);
-        textViewPhone=(TextView) findViewById(R.id.textViewPhone);
-        textViewEmail=(TextView) findViewById(R.id.textViewMail);
-        textViewName=(TextView) findViewById(R.id.textViewName);
+
 
         UpdateDetails.setOnClickListener(this);
     }

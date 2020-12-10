@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ChooseCookingBakery extends AppCompatActivity implements View.OnClickListener{
 
@@ -13,6 +14,7 @@ public class ChooseCookingBakery extends AppCompatActivity implements View.OnCli
     Button HouseBakery;
     Button ClientProfile;
     String id_of_client;
+   TextView textViewExplain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent=getIntent();
@@ -22,7 +24,7 @@ public class ChooseCookingBakery extends AppCompatActivity implements View.OnCli
         HouseCooking=(Button)findViewById(R.id.HouseCooking);
         HouseBakery=(Button)findViewById(R.id.HouseBakery);
         ClientProfile=(Button)findViewById(R.id.ClientProfile);
-
+        textViewExplain=(TextView)findViewById(R.id.textViewExplain);
         HouseCooking.setOnClickListener(this);
         HouseBakery.setOnClickListener(this);
         ClientProfile.setOnClickListener(this);

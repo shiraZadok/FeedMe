@@ -8,11 +8,11 @@
 
     <EditText
         android:id="@+id/FullName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="54dp"
         android:ems="10"
+        android:hint="שם מלא"
         android:inputType="textPersonName"
-        android:text="שם מלא"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
@@ -22,11 +22,11 @@
 
     <EditText
         android:id="@+id/Adress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="321dp"
+        android:layout_height="47dp"
         android:ems="10"
+        android:hint="כתובת למשלוח"
         android:inputType="textPersonName"
-        android:text="כתובת למשלוח"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
@@ -36,11 +36,11 @@
 
     <EditText
         android:id="@+id/PhoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="327dp"
+        android:layout_height="59dp"
         android:ems="10"
+        android:hint="מס' נייד"
         android:inputType="textPersonName"
-        android:text="מספר נייד"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
@@ -50,11 +50,11 @@
 
     <EditText
         android:id="@+id/Email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="324dp"
+        android:layout_height="52dp"
         android:ems="10"
+        android:hint="מייל"
         android:inputType="textPersonName"
-        android:text="אימייל"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
@@ -64,11 +64,11 @@
 
     <EditText
         android:id="@+id/Remarks"
-        android:layout_width="201dp"
-        android:layout_height="193dp"
+        android:layout_width="327dp"
+        android:layout_height="190dp"
         android:ems="10"
+        android:hint="הערות למשלוח:"
         android:inputType="textPersonName"
-        android:text="הערות למשלוח:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.547"
@@ -78,13 +78,14 @@
 
     <Button
         android:id="@+id/Pay"
-        android:layout_width="118dp"
-        android:layout_height="73dp"
+        android:layout_width="312dp"
+        android:layout_height="49dp"
         android:text="תשלום"
+        app:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922" />
+        app:layout_constraintVertical_bias="0.951" />
 </androidx.constraintlayout.widget.ConstraintLayout>

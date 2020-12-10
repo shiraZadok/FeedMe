@@ -25,12 +25,8 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
     EditText Adress;
     EditText Email;
     EditText Phone;
-    TextView textViewPassword;
-    TextView textViewAdress;
-    TextView textViewPhone;
-    TextView textViewEmail;
-    TextView textViewName;
-    TextView textViewOnUs;
+
+
     Button SaveUpdate;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -40,6 +36,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
     public String newadress;
     public String newpassword;
     String  id_of_business;
+    TextView TextViewplace;
     //public String newonus;
 
 
@@ -56,15 +53,11 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
         Adress = (EditText)findViewById(R.id.Adress);
         Email = (EditText)findViewById(R.id.Email);
         Phone = (EditText)findViewById(R.id. Phone);
-        textViewPassword = (TextView)findViewById(R.id.textViewPassword);
+       TextViewplace = (TextView)findViewById(R.id.TextViewplace);
         UpdateProducts=(Button)findViewById(R.id.UpdateProducts);
 
         SaveUpdate=(Button)findViewById(R.id.SaveUpdate);
-        textViewAdress=(TextView) findViewById(R.id.textViewAdress);
-        textViewPhone=(TextView) findViewById(R.id.textViewPhone);
-        textViewEmail=(TextView) findViewById(R.id.textViewMail);
-        textViewName=(TextView) findViewById(R.id.textViewName);
-        textViewOnUs=(TextView) findViewById(R.id.textViewOnUs);
+
 
         rootNode=FirebaseDatabase.getInstance();
         reference=rootNode.getReference("Business/"+id_of_business);

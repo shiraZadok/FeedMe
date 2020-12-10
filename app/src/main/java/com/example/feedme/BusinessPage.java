@@ -19,11 +19,8 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
 
     Button EditPage;
     Button MyOrders;
-    TextView textViewPassword;
-    TextView textViewAdress;
-    TextView textViewPhone;
-    TextView textViewEmail;
-    TextView textViewName;
+
+
     TextView B_Name;
     TextView B_Phone;
     TextView B_Adress;
@@ -69,11 +66,7 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
         B_Email=(TextView)findViewById(R.id.B_Email);
         B_Phone=(TextView)findViewById(R.id.B_Phone);
         B_Password=(TextView)findViewById(R.id.B_Password);
-        textViewPassword=(TextView) findViewById(R.id.textViewPassword);
-        textViewAdress=(TextView) findViewById(R.id.textViewAdress);
-        textViewPhone=(TextView) findViewById(R.id.textViewPhone);
-        textViewEmail=(TextView) findViewById(R.id.textViewMail);
-        textViewName=(TextView) findViewById(R.id.textViewName);
+
         MyOrders.setOnClickListener(this);
     }
 

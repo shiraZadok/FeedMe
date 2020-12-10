@@ -26,11 +26,7 @@ public class UpdateClientDetails extends AppCompatActivity  implements View.OnCl
     EditText Email;
     EditText Phone;
     Button Update;
-    TextView textViewPassword;
-    TextView textViewAdress;
-    TextView textViewPhone;
-    TextView textViewEmail;
-    TextView textViewName;
+
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     public String newname;
@@ -57,11 +53,6 @@ public class UpdateClientDetails extends AppCompatActivity  implements View.OnCl
         Email = (EditText)findViewById(R.id.Email);
         Phone = (EditText)findViewById(R.id.Phone);
         Update=(Button)findViewById(R.id.Update);
-        textViewPassword=(TextView) findViewById(R.id.textViewPassword);
-        textViewAdress=(TextView) findViewById(R.id.textViewAdress);
-        textViewPhone=(TextView) findViewById(R.id.textViewPhone);
-        textViewEmail=(TextView) findViewById(R.id.textViewMail);
-        textViewName=(TextView) findViewById(R.id.textViewName);
 
 
         Update.setOnClickListener(this);

@@ -8,38 +8,53 @@
 
     <Button
         android:id="@+id/HouseCooking"
-        android:layout_width="294dp"
-        android:layout_height="263dp"
+        android:layout_width="360dp"
+        android:layout_height="170dp"
         android:text="House Cooking"
+        app:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.801" />
+        app:layout_constraintVertical_bias="0.746" />
 
     <Button
         android:id="@+id/HouseBakery"
-        android:layout_width="292dp"
-        android:layout_height="275dp"
+        android:layout_width="357dp"
+        android:layout_height="165dp"
         android:text="House Bakery"
+        app:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.339" />
 
     <Button
         android:id="@+id/ClientProfile"
-        android:layout_width="286dp"
+        android:layout_width="373dp"
         android:layout_height="47dp"
         android:text="הפרופיל שלי"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.007" />
+
+    <TextView
+        android:id="@+id/textViewExplain"
+        android:layout_width="358dp"
+        android:layout_height="60dp"
+        android:text="האם תרצה להזמין מאפים  או בישולים ?"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162" />
 </androidx.constraintlayout.widget.ConstraintLayout>
