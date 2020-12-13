@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This class make a new client
 public class RegisterNewClient extends AppCompatActivity implements View.OnClickListener {
 
     EditText Name;

@@ -2,6 +2,7 @@ package com.example.feedme;
 
 import android.widget.EditText;
 
+//This class represents all objects of type - Order
 public class Order {
     public String id_of_business_item;
     public String num_product;

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//This class allows the customer to choose the right order for him
 public class Filters extends AppCompatActivity implements View.OnClickListener  {
 
     TextView Place;

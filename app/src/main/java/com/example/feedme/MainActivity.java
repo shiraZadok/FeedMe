@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+//This class represent the first page of the app
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button Start;

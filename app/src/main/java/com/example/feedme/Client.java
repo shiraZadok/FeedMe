@@ -2,6 +2,7 @@ package com.example.feedme;
 
 import android.widget.EditText;
 
+//This class represents all objects of type - Client
 public class Client {
     public String Name;
     public String Password;

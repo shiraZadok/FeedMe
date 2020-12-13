@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+//This class represent the home page of the client after he login to the app
 public class ChooseCookingBakery extends AppCompatActivity implements View.OnClickListener{
 
     Button HouseCooking;

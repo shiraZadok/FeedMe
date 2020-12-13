@@ -3,6 +3,7 @@ package com.example.feedme;
 import java.util.ArrayList;
 import java.util.Vector;
 
+//This class represents all objects of type - Product
 public class Product {
     public String ProductInfo;
     public String numProduct;

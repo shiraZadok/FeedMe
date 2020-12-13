@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This class  allows the client to see his personal details
 public class ClientProfile extends AppCompatActivity implements View.OnClickListener{
 
     Button UpdateDetails;

@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.EventListener;
 
+//This class allows the client to do an order
 public class CustomerOrderDetails extends AppCompatActivity implements View.OnClickListener{
 
     EditText FullName;

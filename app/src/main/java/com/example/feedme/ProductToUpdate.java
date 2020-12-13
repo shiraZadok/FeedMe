@@ -26,6 +26,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
+//This class represent all the products of business update product of business
 public class ProductToUpdate extends AppCompatActivity {
 
     ListView MyProducts;

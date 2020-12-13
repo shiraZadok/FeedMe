@@ -1,5 +1,6 @@
 package com.example.feedme;
 
+//This class represents all objects of type - Business
 public class Business {
     public String BName;
     public String BPassword;

@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+//This class shows the customer the right products for him according to his choices on the page - Filter
 public class Options extends AppCompatActivity  implements View.OnClickListener{
 
     ListView ViewP;

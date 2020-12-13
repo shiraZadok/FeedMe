@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This class allows the business to edit his details
 public class EditPageBusiness extends AppCompatActivity implements View.OnClickListener{
 
     EditText OnUs;

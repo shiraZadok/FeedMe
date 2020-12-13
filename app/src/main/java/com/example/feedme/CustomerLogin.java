@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This class allows the client to connect to the app
 public class CustomerLogin extends AppCompatActivity implements View.OnClickListener {
     EditText FullName;
     EditText Password;

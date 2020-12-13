@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+//This class represent to business all his orders
 public class BusinessOrders extends AppCompatActivity {
     ListView MyOrders;
     FirebaseDatabase rootNode;

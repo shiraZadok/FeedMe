@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
+//This class update the selected product from business list.
 public class UpdateProduct extends AppCompatActivity implements View.OnClickListener{
 
     private ImageView imgView;

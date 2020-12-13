@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//This class make a new business
 public class RegisterNewBusiness extends AppCompatActivity implements View.OnClickListener{
 
     EditText Name;

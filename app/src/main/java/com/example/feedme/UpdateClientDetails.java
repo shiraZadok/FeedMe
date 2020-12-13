@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This class update the details of the client
 public class UpdateClientDetails extends AppCompatActivity  implements View.OnClickListener{
 
 

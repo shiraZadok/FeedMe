@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This class represent the profile of the business
 public class BusinessPage extends AppCompatActivity implements View.OnClickListener {
 
     Button EditPage;

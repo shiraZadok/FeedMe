@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-
+//This class allows you to select a client / business connection
 public class ConnectionWindows extends AppCompatActivity implements View.OnClickListener {
 
     Button Client;
