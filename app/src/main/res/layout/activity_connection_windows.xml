@@ -5,6 +5,7 @@
     android:id="@+id/BusinessButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backround"
     tools:context=".ConnectionWindows">
 
     <Button
@@ -14,7 +15,7 @@
         android:text="כניסת לקוח"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#D6FFEB63"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -29,7 +30,7 @@
         android:text="כניסת עסק"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#E2FFEB63"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"

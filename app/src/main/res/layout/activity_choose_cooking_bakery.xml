@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mel"
     tools:context=".ChooseCookingBakery">
 
     <Button
@@ -11,26 +12,25 @@
         android:layout_width="360dp"
         android:layout_height="170dp"
         android:text="House Cooking"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#909C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintVertical_bias="0.971" />
 
     <Button
         android:id="@+id/HouseBakery"
         android:layout_width="357dp"
         android:layout_height="165dp"
         android:text="House Bakery"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#7A9C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintVertical_bias="0.651" />
 
     <Button
         android:id="@+id/ClientProfile"
@@ -38,7 +38,7 @@
         android:layout_height="47dp"
         android:text="הפרופיל שלי"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#999C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
@@ -54,7 +54,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.339"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.442" />
 </androidx.constraintlayout.widget.ConstraintLayout>
