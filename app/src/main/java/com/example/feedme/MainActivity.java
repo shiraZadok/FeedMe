@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+
+
 
 //This class represent the first page of the app
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -17,10 +22,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Start=(Button)findViewById(R.id.Start);
-        Start.setOnClickListener(this);
-        //Toast.makeText( this,"FireBase connection success",Toast.LENGTH_LONG).show();
+       // Start.setOnClickListener(this);
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu);
+        inflater.inflate(R.menu.opt_menu, menu);
+
+    }
     @Override
     public void onClick(View view) {
         if (view ==  Start) {
@@ -28,4 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
     }
+
+
 }

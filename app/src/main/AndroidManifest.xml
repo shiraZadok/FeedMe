@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedMe">
-        <activity android:name=".BusinessOrders"></activity>
+        <activity android:name=".BusinessOrders" />
         <activity android:name=".ProductToUpdate" />
         <activity android:name=".UpdateProduct" />
         <activity android:name=".GalleryUpdate" />
