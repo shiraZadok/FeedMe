@@ -25,12 +25,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        // Start.setOnClickListener(this);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu);
-        inflater.inflate(R.menu.opt_menu, menu);
-
-    }
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu);
+//        inflater.inflate(R.menu.opt_menu, menu);
+//
+//    }
     @Override
     public void onClick(View view) {
         if (view ==  Start) {
