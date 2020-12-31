@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,11 +15,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -28,6 +32,8 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     ListView ViewP;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    private FirebaseStorage storage;  //31
+    private StorageReference storageReference;  //31
     Button Pay;
     ArrayList<String> arrayList=new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
@@ -69,6 +75,12 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Products");
+
+        storage= FirebaseStorage.getInstance();  //31
+        storageReference=storage.getReference();  //31
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
         Pay= (Button) findViewById(R.id.Pay) ;
@@ -84,12 +96,13 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
         Pay.setOnClickListener(this);
 
 
-
-
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String value =(String) snapshot.getValue(Product.class).toString();
+                //StorageReference riversRef = storageReference.child("images/"+id_func(value,"id=")); //31
+                //String value2= riversRef.getDownloadUrl().toString();//31
+                //System.out.println("value2"+value2);
 //                String price = (String) snapshot.child("Price").getValue().toString();
 //                String C_Kosher = (String) snapshot.child("category").child("Kosher").getValue().toString();
 //                String C_SugerFree = (String) snapshot.child("category").child("SugerFree").getValue().toString();
@@ -99,6 +112,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 //                String C_Vegan = (String) snapshot.child("category").child("Vegan").getValue().toString();
                 //if
                 arrayList.add(value);
+                //arrayList.add(value2); //31
                 arrayAdapter.notifyDataSetChanged();
 
             }
