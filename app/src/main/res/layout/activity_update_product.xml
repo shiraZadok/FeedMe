@@ -159,7 +159,7 @@
         android:id="@+id/textViewImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="לחץ לבחירת תמונה"
+        android:text="בחר תמונה מהגלריה"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.747"
