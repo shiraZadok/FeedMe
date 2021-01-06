@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,14 +49,13 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
     EditText NumProduct;
     EditText Price;
     TextView Categories;
-    Button Kosher;
-    Button Vegan;
-    Button GlutenFree;
-    Button PenutsFree;
-    Button Parve;
-    Button SugerFree;
+    CheckBox Kosher;
     String id_of_Product;
     String id_of_business;
+    String place;
+    public int kosher=1;
+    public int take;
+    public int del;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     private FirebaseStorage storage;
@@ -77,6 +77,12 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
         Intent intent = getIntent();
         id_of_Product = intent.getExtras().getString("Pid");
         id_of_business = intent.getExtras().getString("Bid");
+        place = intent.getExtras().getString("Chooseplace");
+        take = intent.getExtras().getInt("takeAway");
+        del = intent.getExtras().getInt("delivery");
+
+
+
         System.out.println("id_of_Product" + id_of_Product + ",id_of_business=" + id_of_business);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_product);
@@ -93,12 +99,7 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
         });
 
         Categories = (TextView) findViewById(R.id.Categories);
-        Kosher = (Button) findViewById(R.id.Kosher);
-        Vegan = (Button) findViewById(R.id.Vegan);
-        GlutenFree = (Button) findViewById(R.id.GlutenFree);
-        PenutsFree = (Button) findViewById(R.id.PenutsFree);
-        Parve = (Button) findViewById(R.id.Parve);
-        SugerFree = (Button) findViewById(R.id.SugerFree);
+        Kosher = (CheckBox) findViewById(R.id.Kosher);
         ProductInfo = (EditText) findViewById(R.id.ProductInfo);
         NumProduct = (EditText) findViewById(R.id.NumProduct);
         Price = (EditText) findViewById(R.id.Price);
@@ -118,7 +119,7 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
                 if (snapshot.getChildrenCount() != 0) {
                     newPrice = (String) snapshot.child("Price").getValue().toString();
                     newProductInfo = (String) snapshot.child("ProductInfo").getValue().toString();
-                    newcategory = (String) snapshot.child("category").getValue().toString();
+                    newcategory = (String) snapshot.child("kosher").getValue().toString();
                     newid = (String) snapshot.child("id").getValue().toString();
                     newid_of_business = (String) snapshot.child("id_of_business").getValue().toString();
                     newnumProduct = (String) snapshot.child("numProduct").getValue().toString();
@@ -195,23 +196,12 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
 
         ArrayList<String> category=new ArrayList<String>();
         if(!Kosher.getText().toString().isEmpty()){
-            category.add("Kosher");
+            kosher=1;  //kosher
         }
-        if(!SugerFree.getText().toString().isEmpty()){
-            category.add("SugerFree");
+        else{
+            kosher=0;  //not kosher
         }
-        if(!GlutenFree.getText().toString().isEmpty()){
-            category.add("GlutenFree");
-        }
-        if(!Parve.getText().toString().isEmpty()){
-            category.add("Parve");
-        }
-        if(!PenutsFree.getText().toString().isEmpty()){
-            category.add("PenutsFree");
-        }
-        if(!Vegan.getText().toString().isEmpty()){
-            category.add("Vegan");
-        }
+
 
         if(!Price.getText().toString().isEmpty()) {
             newPrice=Price.getText().toString();
@@ -223,9 +213,12 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
             newnumProduct=NumProduct.getText().toString();
         }
    //     Product newproduct=new Product("ggg", "555","100",null ,id_of_business);
-      newproduct=new Product(newProductInfo,  newnumProduct,newPrice,category ,id_of_business);
+        System.out.println("###################Updat product,takeAway="+take+"delivery="+del);
+        newproduct=new Product(newProductInfo,  newnumProduct,newPrice,category ,id_of_business,place,take,del,kosher);
+        System.out.println("##########"+newproduct.delivery+","+newproduct.takeAway);
 
-       // newproduct.id=reference.push().getKey();
+
+        // newproduct.id=reference.push().getKey();
         newproduct.id=id_of_Product;
 
 

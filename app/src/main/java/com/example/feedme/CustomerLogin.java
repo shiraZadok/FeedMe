@@ -30,6 +30,8 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     Button NewClient;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    public int flag=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +70,19 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                             String name = (String) postSnapshot.child("Name").getValue().toString();
                             String password = (String) postSnapshot.child("Password").getValue().toString();
                             if(name.equals(FullName.getText().toString())&&password.equals(Password.getText().toString())){
+                                flag=1;
                                 String id = (String) postSnapshot.child("id").getValue().toString();
                                 Intent intent = new Intent(CustomerLogin.this, ChooseCookingBakery.class);
                                 intent.putExtra("id", id);
                                 startActivity(intent);
                                 break;
                             }
-                            else{
-                                Toast.makeText(CustomerLogin.this, "WRONG PASSWORD/NAME", Toast.LENGTH_SHORT).show();
-                            }
+
+
+                        }
+                        if(flag==0){
+                            Toast.makeText(CustomerLogin.this, "WRONG PASSWORD/NAME", Toast.LENGTH_SHORT).show();
+
                         }
 
                     }

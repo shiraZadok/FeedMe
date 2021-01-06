@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 //This class allows the business to edit his details
 public class EditPageBusiness extends AppCompatActivity implements View.OnClickListener{
@@ -29,6 +32,16 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
     EditText Email;
     EditText Phone;
 
+    TextView place;
+    CheckBox hazafone;
+    CheckBox mercaz;
+    CheckBox hadarom;
+    CheckBox eilat;
+
+    CheckBox delivery;
+    CheckBox takeAway;
+    public int take;
+    public int del;
 
     Button SaveUpdate;
     FirebaseDatabase rootNode;
@@ -41,12 +54,17 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
     String  id_of_business;
     TextView TextViewplace;
     //public String newonus;
+    String Chooseplace;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent=getIntent();
         id_of_business = intent.getExtras().getString("Bid");
+        take = intent.getExtras().getInt("takeAway");
+        del = intent.getExtras().getInt("delivery");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_page_business);
@@ -56,11 +74,17 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
         Adress = (EditText)findViewById(R.id.Adress);
         Email = (EditText)findViewById(R.id.Email);
         Phone = (EditText)findViewById(R.id. Phone);
-       TextViewplace = (TextView)findViewById(R.id.TextViewplace);
         UpdateProducts=(Button)findViewById(R.id.UpdateProducts);
 
+        hazafone=(CheckBox)findViewById(R.id.hazafone);
+        mercaz=(CheckBox)findViewById(R.id.mercaz);
+        hadarom=(CheckBox)findViewById(R.id.hadarom);
+        eilat=(CheckBox)findViewById(R.id.eilat);
+        place=(TextView)findViewById(R.id.place);
         SaveUpdate=(Button)findViewById(R.id.SaveUpdate);
 
+        delivery=(CheckBox)findViewById(R.id.delivery);
+        takeAway=(CheckBox)findViewById(R.id.takeAway);
 
         rootNode=FirebaseDatabase.getInstance();
         reference=rootNode.getReference("Business/"+id_of_business);
@@ -72,6 +96,10 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
                 newemail=(String)snapshot.child("BEmail").getValue().toString();
                 newadress=(String)snapshot.child("BAdress").getValue().toString();
                 newpassword=(String)snapshot.child("BPassword").getValue().toString();
+                Chooseplace=(String)snapshot.child("BArea").getValue().toString();
+
+
+
             }
 
             @Override
@@ -88,8 +116,7 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-
-        if (view ==  SaveUpdate) {
+        if(view ==  SaveUpdate||view ==  UpdateProducts){
             if(!FullName.getText().toString().isEmpty()) {
                 newname=FullName.getText().toString();
             }
@@ -105,20 +132,56 @@ public class EditPageBusiness extends AppCompatActivity implements View.OnClickL
             if(!Email.getText().toString().isEmpty()) {
                 newemail=Email.getText().toString();
             }
-//            if(!OnUs.getText().toString().isEmpty()) {
-//                newonus=OnUs.getText().toString();
-//            }
-            Business newbusiness=new Business(newname, newpassword,newadress, newemail, newphone);
+            if(delivery.isChecked() ){
+                System.out.println("del is click");
+                del=1;
+            }
+            if(takeAway.isChecked() ){
+                System.out.println("take is click");
+
+                take=1;
+            }
+
+            if(hazafone.isChecked()){
+                Chooseplace="Hazafone";
+            }
+
+            if(eilat.isChecked() ){
+                Chooseplace="Eilat";
+            }
+
+            if(hazafone.isChecked()){
+                Chooseplace="Hazafone";
+            }
+            if(mercaz.isChecked() ){
+                Chooseplace="Mercaz";
+            }
+
+            if(hadarom.isChecked()){
+                Chooseplace="Hadarom";
+            }
+
+        }
+        if (view ==  SaveUpdate) {
+
+            Business newbusiness=new Business(newname, newpassword,newadress,Chooseplace, newemail, newphone);
             newbusiness.Bid= id_of_business;;
             reference.setValue(newbusiness);
             //Business business=new Business(Name.getText().toString(), Password.getText().toString(), Adress.getText().toString(), Email.getText().toString(), Phone.getText().toString());
             Intent intent = new Intent(this, BusinessPage.class);
             intent.putExtra("Bid",id_of_business);
+            intent.putExtra("delivery",del);
+            intent.putExtra("takeAway",take);
             startActivity(intent);
         }
         if (view ==  UpdateProducts) {
+            System.out.println("!!!!!!edit =" +take+","+"delivery="+del);
+
             Intent intent = new Intent(this,ProductToUpdate.class);  //UpdateProduct
             intent.putExtra("Bid",id_of_business);
+            intent.putExtra("Chooseplace",Chooseplace);
+            intent.putExtra("delivery",del);
+            intent.putExtra("takeAway",take);
             startActivity(intent);
         }
 

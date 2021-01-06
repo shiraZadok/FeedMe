@@ -32,6 +32,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     ListView ViewP;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+
     private FirebaseStorage storage;  //31
     private StorageReference storageReference;  //31
     Button Pay;
@@ -42,10 +43,13 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     public String num_item;
     public String id_of_client;
 
+    public int take;
+    public int del;
+
 
     ArrayList<String> ChooseDel= new ArrayList<>();
-    ArrayList<String> ChoosePlace= new ArrayList<>();
-    ArrayList<String> ChoosePrice= new ArrayList<>();
+    String ChoosePlace;
+    int ChoosePrice;
     ArrayList<String> ChooseCategories= new ArrayList<>();
 
 
@@ -67,14 +71,17 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent=getIntent();
         ChooseCategories =intent.getExtras().getStringArrayList(("ChooseCategories"));
-        ChooseDel = intent.getExtras().getStringArrayList(("ChooseDel"));
-        ChoosePlace = intent.getExtras().getStringArrayList("ChoosePlace");
-        ChoosePrice = intent.getExtras().getStringArrayList("ChoosePrice");
+        //ChooseDel = intent.getExtras().getStringArrayList(("ChooseDel"));
+        del=intent.getExtras().getInt("delivery");
+        take=intent.getExtras().getInt("takeAway");
+        ChoosePlace = intent.getExtras().getString("ChoosePlace");
+        ChoosePrice = intent.getExtras().getInt("ChoosePrice");
         id_of_client= intent.getExtras().getString("id");
 
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Products");
+
 
         storage= FirebaseStorage.getInstance();  //31
         storageReference=storage.getReference();  //31
@@ -86,10 +93,10 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
         Pay= (Button) findViewById(R.id.Pay) ;
 
         System.out.println("new page");
-        System.out.println("******************************"+ ChooseDel.toString());
+//        System.out.println("******************************"+ ChooseDel.toString());
         System.out.println("******************************"+ChooseCategories.toString());
         System.out.println("******************************"+ChoosePlace.toString());
-        System.out.println("******************************"+ChoosePrice.toString());
+        //System.out.println("******************************"+ChoosePrice.toString());
         arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList);
         ViewP =(ListView)findViewById(R.id.ViewP);
         ViewP.setAdapter(arrayAdapter);
@@ -103,7 +110,41 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
                 //StorageReference riversRef = storageReference.child("images/"+id_func(value,"id=")); //31
                 //String value2= riversRef.getDownloadUrl().toString();//31
                 //System.out.println("value2"+value2);
-//                String price = (String) snapshot.child("Price").getValue().toString();
+                String price =  (String) snapshot.child("Price").getValue().toString();
+                String area =  (String) snapshot.child("Area").getValue().toString();
+
+                String temp=(String) snapshot.child("takeAway").getValue().toString();
+                String temp2=(String) snapshot.child("delivery").getValue().toString();
+                int takeproduct=Integer.parseInt(temp);
+                int delproduct=Integer.parseInt(temp2);
+
+                int p=Integer.parseInt(price);
+                //System.out.println("ChoosePrice"+ChoosePrice+"ChoosePlace"+ChoosePlace);
+                boolean flag=false;
+                if(take==1 && takeproduct==1){ flag=true;}
+                if(del==1&& delproduct==1){ flag=true;}
+                if(take==0 && del==0){flag=true;}
+
+                if(ChoosePrice==-1) {
+                    if(ChoosePlace.equals(" ") &&flag==true) {
+                        arrayList.add(value);
+                    }
+                    else
+                    if(area.equals(ChoosePlace)&&flag==true){
+                        arrayList.add(value);
+                    }
+                }
+
+                if(p<=ChoosePrice ){
+                    if(ChoosePlace.equals(" ")&&flag==true) {
+                        arrayList.add(value);
+                    }
+                    else
+                    if(area.equals(ChoosePlace)&&flag==true){
+                        arrayList.add(value);
+                    }
+                }
+
 //                String C_Kosher = (String) snapshot.child("category").child("Kosher").getValue().toString();
 //                String C_SugerFree = (String) snapshot.child("category").child("SugerFree").getValue().toString();
 //                String C_GlutenFree = (String) snapshot.child("category").child("GlutenFree").getValue().toString();
@@ -111,7 +152,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 //                String C_PenutsFree = (String) snapshot.child("category").child("PenutsFree").getValue().toString();
 //                String C_Vegan = (String) snapshot.child("category").child("Vegan").getValue().toString();
                 //if
-                arrayList.add(value);
+
                 //arrayList.add(value2); //31
                 arrayAdapter.notifyDataSetChanged();
 

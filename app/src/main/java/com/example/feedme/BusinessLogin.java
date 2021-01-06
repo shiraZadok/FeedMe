@@ -28,6 +28,7 @@ public class BusinessLogin extends AppCompatActivity implements View.OnClickList
     Button NewBusiness;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    public int flag=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -60,6 +61,7 @@ public class BusinessLogin extends AppCompatActivity implements View.OnClickList
 //            startActivity(intent);
 //        }
         if (view == Connect) {
+
             rootNode=FirebaseDatabase.getInstance();
             reference=rootNode.getReference("Business");
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -70,18 +72,24 @@ public class BusinessLogin extends AppCompatActivity implements View.OnClickList
                         String name = (String) postSnapshot.child("BName").getValue().toString();
                         String password = (String) postSnapshot.child("BPassword").getValue().toString();
                         if(name.equals(FullName.getText().toString())&&password.equals(Password.getText().toString())){
-                            String Bid = (String) postSnapshot.child("Bid").getValue().toString();
+                            flag=1;
+                            String bid = (String) postSnapshot.child("Bid").getValue().toString();
                             Intent intent = new Intent(BusinessLogin.this, BusinessPage.class);
-                            intent.putExtra("Bid", Bid);
+                            intent.putExtra("Bid", bid);
+                            intent.putExtra("takeAway", 0);
+                            intent.putExtra("delivery", 0);
                             startActivity(intent);
                             break;
                         }
-                        else{
-                            Toast.makeText(BusinessLogin.this, "WRONG PASSWORD/NAME", Toast.LENGTH_SHORT).show();
-                        }
+
+
+                    }
+                    if(flag==0) {
+                        Toast.makeText(BusinessLogin.this, "WRONG PASSWORD/NAME", Toast.LENGTH_SHORT).show();
                     }
 
                 }
+
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {

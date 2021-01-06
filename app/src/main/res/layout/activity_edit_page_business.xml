@@ -30,30 +30,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.961" />
 
-    <TextView
-        android:id="@+id/TextViewplace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="אנא בחר איזור בארץ"
-        android:text="אנא בחר איזור בארץ"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
-
-    <Spinner
-        android:id="@+id/PlaceSpinner"
-        android:layout_width="238dp"
-        android:layout_height="47dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
-
     <EditText
         android:id="@+id/OnUs"
         android:layout_width="362dp"
@@ -70,86 +46,147 @@
 
     <Button
         android:id="@+id/UpdateProducts"
-        android:layout_width="387dp"
-        android:layout_height="53dp"
+        android:layout_width="172dp"
+        android:layout_height="58dp"
         android:text="עדכון מוצרים"
         android:textSize="18sp"
         app:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <EditText
         android:id="@+id/FullName"
-        android:layout_width="368dp"
-        android:layout_height="44dp"
+        android:layout_width="162dp"
+        android:layout_height="37dp"
         android:ems="10"
         android:hint="עדכון שם העסק"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.144" />
 
     <EditText
         android:id="@+id/Password"
-        android:layout_width="370dp"
-        android:layout_height="46dp"
+        android:layout_width="168dp"
+        android:layout_height="35dp"
         android:ems="10"
         android:hint="עדכון סיסמא"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.658"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.53" />
 
     <EditText
         android:id="@+id/Adress"
-        android:layout_width="377dp"
-        android:layout_height="45dp"
+        android:layout_width="164dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="עדכון כתובת העסק "
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintVertical_bias="0.241" />
 
     <EditText
         android:id="@+id/Email"
-        android:layout_width="368dp"
-        android:layout_height="45dp"
+        android:layout_width="197dp"
+        android:layout_height="52dp"
         android:ems="10"
         android:hint="עדכון מייל"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <EditText
         android:id="@+id/Phone"
-        android:layout_width="362dp"
-        android:layout_height="44dp"
+        android:layout_width="118dp"
+        android:layout_height="46dp"
         android:ems="10"
         android:hint="עדכון מס' נייד"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintVertical_bias="0.432" />
+
+    <CheckBox
+        android:id="@+id/hazafone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="אזור הצפון"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172" />
+
+    <CheckBox
+        android:id="@+id/mercaz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="אזור המרכז"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.257" />
+
+    <CheckBox
+        android:id="@+id/hadarom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="אזור הדרום"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.351" />
+
+    <CheckBox
+        android:id="@+id/eilat"
+        android:layout_width="116dp"
+        android:layout_height="51dp"
+        android:text="אילת"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.457" />
+
+    <TextView
+        android:id="@+id/place"
+        android:layout_width="97dp"
+        android:layout_height="38dp"
+        android:text="בחר איזור בארץ"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.073" />
 
     <Button
         android:id="@+id/SaveUpdate"

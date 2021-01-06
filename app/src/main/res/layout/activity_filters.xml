@@ -18,18 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.102" />
 
-    <CheckBox
-        android:id="@+id/RamatHagolan"
-        android:layout_width="108dp"
-        android:layout_height="40dp"
-        android:text="רמת הגולן"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.963"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096" />
-
     <TextView
         android:id="@+id/Prices"
         android:layout_width="119dp"
@@ -91,7 +79,7 @@
         app:layout_constraintVertical_bias="0.455" />
 
     <CheckBox
-        android:id="@+id/Hazafone"
+        android:id="@+id/hazafone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור הצפון"
@@ -103,67 +91,43 @@
         app:layout_constraintVertical_bias="0.172" />
 
     <CheckBox
-        android:id="@+id/Jerusalem"
+        android:id="@+id/mercaz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="אזור ירושלים"
+        android:text="אזור המרכז"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349" />
+        app:layout_constraintVertical_bias="0.257" />
 
     <CheckBox
-        android:id="@+id/Hasharon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="אזור השרון"
-        app:layout_constraintBottom_toBottomOf="@+id/Unlimited"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.924"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565" />
-
-    <CheckBox
-        android:id="@+id/TelAviv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="אזור תל אביב"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
-
-    <CheckBox
-        android:id="@+id/Hadarom"
+        android:id="@+id/hadarom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אזור הדרום"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525" />
+        app:layout_constraintVertical_bias="0.351" />
 
     <CheckBox
-        android:id="@+id/Eilat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/eilat"
+        android:layout_width="116dp"
+        android:layout_height="51dp"
         android:text="אילת"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.614" />
+        app:layout_constraintVertical_bias="0.457" />
 
     <TextView
-        android:id="@+id/Place"
+        android:id="@+id/place"
         android:layout_width="97dp"
         android:layout_height="38dp"
         android:text="בחר איזור בארץ"
@@ -221,66 +185,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.087" />
-
-    <CheckBox
-        android:id="@+id/Vegan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="טבעוני"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.187" />
-
-    <CheckBox
-        android:id="@+id/GlutenFree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ללא גלוטן"
-        app:layout_constraintBottom_toBottomOf="@+id/UpdateProductButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
-
-    <CheckBox
-        android:id="@+id/PenutsFree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ללא בוטנים"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366" />
-
-    <CheckBox
-        android:id="@+id/Parve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="פרווה"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
-
-    <CheckBox
-        android:id="@+id/SugerFree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ללא סוכר"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544" />
 
     <Button
         android:id="@+id/UpdateProductButton"

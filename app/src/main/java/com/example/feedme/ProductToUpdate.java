@@ -35,6 +35,10 @@ public class ProductToUpdate extends AppCompatActivity {
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     String id_business;
+    String place;
+
+    public int del;
+    public int take;
     ArrayList<String> arrayList=new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     Button btnUpdate,btnCancel,btnAddNew;
@@ -61,6 +65,15 @@ public class ProductToUpdate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         id_business = intent.getExtras().getString("Bid");
+        place = intent.getExtras().getString("Chooseplace");
+        take = intent.getExtras().getInt("takeAway");
+        del = intent.getExtras().getInt("delivery");
+
+
+        System.out.println("!!!!!!Product to update take=" +take+","+"delivery="+del);
+
+
+
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Products");
         super.onCreate(savedInstanceState);
@@ -123,10 +136,15 @@ public class ProductToUpdate extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("product to update ,takeAway="+take+"delivery="+del);
 
                 Intent intphto =new Intent(getApplicationContext(),UpdateProduct.class);
                 intphto.putExtra("Pid",id_of_item);  //id of product
                 intphto.putExtra("Bid",id_business);
+                intphto.putExtra("Chooseplace",place);
+                intphto.putExtra("takeAway",take);
+                intphto.putExtra("delivery",del);
+
                 startActivity(intphto);
             }
         });
@@ -134,11 +152,15 @@ public class ProductToUpdate extends AppCompatActivity {
         btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                System.out.println("product to update ,takeAway="+take+"delivery="+del);
                 Intent intphto =new Intent(getApplicationContext(),UpdateProduct.class);
                 String id_new_Product=reference.push().getKey();
                 intphto.putExtra("Pid",id_new_Product);  //id of product
                 intphto.putExtra("Bid",id_business);
+                intphto.putExtra("Chooseplace",place);
+                intphto.putExtra("takeAway",take);
+                intphto.putExtra("delivery",del);
+
                 startActivity(intphto);
             }
         });

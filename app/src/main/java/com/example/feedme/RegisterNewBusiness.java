@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 //This class make a new business
 public class RegisterNewBusiness extends AppCompatActivity implements View.OnClickListener{
 
@@ -46,7 +48,7 @@ public class RegisterNewBusiness extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         rootNode=FirebaseDatabase.getInstance();
         reference=rootNode.getReference();
-        Business business=new Business(Name.getText().toString(), Password.getText().toString(), Adress.getText().toString(), Email.getText().toString(), Phone.getText().toString());
+        Business business=new Business(Name.getText().toString(), Password.getText().toString(), Adress.getText().toString()," ", Email.getText().toString(), Phone.getText().toString());
         business.Bid=reference.push().getKey();
         if (view ==  Create ) {
             reference.child("Business").child(business.Bid).setValue(business);
