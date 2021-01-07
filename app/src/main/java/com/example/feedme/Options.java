@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,8 +15,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -33,15 +39,19 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
-    private FirebaseStorage storage;  //31
-    private StorageReference storageReference;  //31
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
     Button Pay;
-    ArrayList<String> arrayList=new ArrayList<>();
-    ArrayAdapter<String> arrayAdapter;
+//    ArrayList<ObjectForList> arrayList=new ArrayList<>();  //07
+//    ArrayAdapter<ObjectForList> arrayAdapter;  //07
+
+    ArrayList<ObjectForList> arrayList=new ArrayList<ObjectForList>();  //07
+    AdapterProduct arrayAdapter;
     public String item;
     public String id_of_business_item;
     public String num_item;
     public String id_of_client;
+
 
     public int take;
     public int del;
@@ -52,10 +62,13 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     String ChoosePlace;
     int ChoosePrice;
     ArrayList<String> ChooseCategories= new ArrayList<>();
+    public static String save;
+    public static ObjectForList inList;
 
 
 
-    public String id_func (String name,String search){
+
+    public static String id_func (String name,String search){
         System.out.println("name= "+name);
         int index_id=name.indexOf(search);
         index_id+=search.length();
@@ -100,61 +113,103 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 //        System.out.println("******************************"+ChooseCategories.toString());
         System.out.println("******************************"+ChoosePlace.toString());
         //System.out.println("******************************"+ChoosePrice.toString());
-        arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList);
+        //arrayAdapter=new ArrayAdapter<ObjectForList>(this, android.R.layout.simple_list_item_1,arrayList);
         ViewP =(ListView)findViewById(R.id.ViewP);
         ViewP.setAdapter(arrayAdapter);
         Pay.setOnClickListener(this);
 
-
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String value =(String) snapshot.getValue(Product.class).toString();
+                String value = (String) snapshot.getValue(Product.class).toString();
+                String id_of_image = id_func(value, "id=");
+                System.out.println("id_of_image" + id_of_image);
                 //StorageReference riversRef = storageReference.child("images/"+id_func(value,"id=")); //31
                 //String value2= riversRef.getDownloadUrl().toString();//31
                 //System.out.println("value2"+value2);
-                String price =  (String) snapshot.child("Price").getValue().toString();
-                String area =  (String) snapshot.child("Area").getValue().toString();
+                String price = (String) snapshot.child("Price").getValue().toString();
+                String area = (String) snapshot.child("Area").getValue().toString();
 
-                String temp=(String) snapshot.child("takeAway").getValue().toString();
-                String temp2=(String) snapshot.child("delivery").getValue().toString();
-                String temp3=(String) snapshot.child("kosher").getValue().toString();
-                int takeproduct=Integer.parseInt(temp);
-                int delproduct=Integer.parseInt(temp2);
-                int kosherproduct=Integer.parseInt(temp3);
+                String temp = (String) snapshot.child("takeAway").getValue().toString();
+                String temp2 = (String) snapshot.child("delivery").getValue().toString();
+                String temp3 = (String) snapshot.child("kosher").getValue().toString();
+                int takeproduct = Integer.parseInt(temp);
+                int delproduct = Integer.parseInt(temp2);
+                int kosherproduct = Integer.parseInt(temp3);
+                inList = new ObjectForList();
+                ///image
+                if (id_of_image.startsWith("-")) {
+                    storageReference.child("images/" + id_of_image).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            // Got the download URL for 'users/me/profile.png'
 
+                            System.out.println(uri.toString() + "********************************");
+                            save = uri.toString();
+                            //inList.image=new StringBuffer(save.length());
+                            //inList.image.append(save);
+                            //System.out.println(inList.image+ "*****************image***************");
 
-                int p=Integer.parseInt(price);
-                //System.out.println("ChoosePrice"+ChoosePrice+"ChoosePlace"+ChoosePlace);
-                boolean flag=false;
-                if(take==1 && takeproduct==1){ flag=true;}
-                if(del==1&& delproduct==1){ flag=true;}
-                if(take==0 && del==0){flag=true;}
+                            System.out.println(save + "*****************save***************");
 
-                boolean flag2=false;
-                if(kosher==1 && kosherproduct==1){ flag2=true;}
-                if(kosher==0&& kosherproduct==0){ flag2=true;}
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle any errors
+                        }
+                    });
+                    ///
 
+                    // System.out.println(inList.image+ "*****************imageafter***************");
 
-                if(ChoosePrice==-1) {
-                    if(ChoosePlace.equals(" ") &&flag==true && flag2==true) {
-                        arrayList.add(value);
+                    int p = Integer.parseInt(price);
+                    //System.out.println("ChoosePrice"+ChoosePrice+"ChoosePlace"+ChoosePlace);
+                    boolean flag = false;
+                    if (take == 1 && takeproduct == 1) {
+                        flag = true;
                     }
-                    else
-                    if(area.equals(ChoosePlace)&&flag==true && flag2==true){
-                        arrayList.add(value);
+                    if (del == 1 && delproduct == 1) {
+                        flag = true;
                     }
-                }
+                    if (take == 0 && del == 0) {
+                        flag = true;
+                    }
 
-                if(p<=ChoosePrice ){
-                    if(ChoosePlace.equals(" ")&&flag==true && flag2==true) {
-                        arrayList.add(value);
+                    boolean flag2 = false;
+                    if (kosher == 1 && kosherproduct == 1) {
+                        flag2 = true;
                     }
-                    else
-                    if(area.equals(ChoosePlace)&&flag==true && flag2==true){
-                        arrayList.add(value);
+                    if (kosher == 0 && kosherproduct == 0) {
+                        flag2 = true;
                     }
-                }
+                    //StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+                    //StorageReference photoReference = storageReference.child("images/" + id_of_image);
+
+                    if (ChoosePrice == -1) {
+                        if (ChoosePlace.equals(" ") && flag == true && flag2 == true) {
+                            inList.text = value;
+                            inList.image=id_of_image;
+                            arrayList.add(inList);
+                        } else if (area.equals(ChoosePlace) && flag == true && flag2 == true) {
+                            inList.text = value;
+                            inList.image=id_of_image;
+                            arrayList.add(inList);
+                        }
+                    }
+
+                    if (p <= ChoosePrice) {
+                        if (ChoosePlace.equals(" ") && flag == true && flag2 == true) {
+                            inList.text = value;
+                            inList.image=id_of_image;
+                            arrayList.add(inList);
+                        } else if (area.equals(ChoosePlace) && flag == true && flag2 == true) {
+                            inList.text = value;
+                            inList.image=id_of_image;
+                            arrayList.add(inList);
+                        }
+                    }
+                    System.out.println("in list maybe=" + inList.toString());
 
 //                String C_Kosher = (String) snapshot.child("category").child("Kosher").getValue().toString();
 //                String C_SugerFree = (String) snapshot.child("category").child("SugerFree").getValue().toString();
@@ -162,11 +217,17 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 //                String C_Parve = (String) snapshot.child("category").child("Parve").getValue().toString();
 //                String C_PenutsFree = (String) snapshot.child("category").child("PenutsFree").getValue().toString();
 //                String C_Vegan = (String) snapshot.child("category").child("Vegan").getValue().toString();
-                //if
+                    //if
 
-                //arrayList.add(value2); //31
-                arrayAdapter.notifyDataSetChanged();
+                    //arrayList.add(value2); //31
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        System.out.println(arrayList.get(i).image + "<-" + "," + arrayList.get(i).text);
+                    }
+                    AdapterProduct adapterProduct = new AdapterProduct(Options.this, arrayList,ViewP);
+                    ViewP.setAdapter(adapterProduct);
+                    //arrayAdapter.notifyDataSetChanged();
 
+                }
             }
 
             @Override
@@ -190,15 +251,21 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
             }
         });
 
-        ViewP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                item=(String)adapterView.getItemAtPosition(i);//This will give you the same result of viewHolder.LL.setOnClickListener as you are doing
-                id_of_business_item=id_func(item,"id_of_business=");
-                num_item=id_func(item,"Num of Product=");
-                System.out.println("item========"+item);
-            }
-        });
+
+//        ViewP.setOnItemClickListener(new AdapterView.OnItemClickListener() {  ///dosent recognize //07
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                System.out.println("click");
+//                item=(String)adapterView.getItemAtPosition(i);//This will give you the same result of viewHolder.LL.setOnClickListener as you are doing
+//                System.out.println("itemmmmmm===="+item);
+//                id_of_business_item=id_func(item,"id_of_business=");
+//                num_item=id_func(item,"Num of Product=");
+//                System.out.println("item========"+item);
+//            }
+//        });
+
+
 
     }
 
@@ -206,6 +273,8 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
     public void onClick(View v) {
         if(v==Pay){
             Intent intent= new Intent(this,CustomerOrderDetails.class);
+            num_item=AdapterProduct.num_item;
+            id_of_business_item=AdapterProduct.id_of_business_item;
             intent.putExtra("Num_Product",num_item);
             intent.putExtra("id_of_business_item",id_of_business_item);
             intent.putExtra("id_of_client",id_of_client);

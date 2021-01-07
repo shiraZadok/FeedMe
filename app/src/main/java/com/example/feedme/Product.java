@@ -46,6 +46,6 @@ public class Product {
     @Override
     public String toString(){
         String answer=this.category.toString();
-        return "Num of Product="+this.numProduct+",id_of_business="+id_of_business+" , Product Info="+this.ProductInfo+", id="+id+", Price="+Price+", Aditional Information"+answer;
+        return "Product Name="+this.ProductInfo+",Price="+Price+"\n\n\n\n\n\n\n,id="+id+",Num of Product="+this.numProduct+",id_of_business="+id_of_business+",Aditional Information"+answer;
     }
 }

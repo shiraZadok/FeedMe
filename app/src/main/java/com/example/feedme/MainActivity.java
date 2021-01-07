@@ -17,12 +17,18 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button Start;
+    Button Try;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Start=(Button)findViewById(R.id.Start);
-       // Start.setOnClickListener(this);
+        Try=(Button)findViewById(R.id.Try);
+
+         Start.setOnClickListener(this);
+        Try.setOnClickListener(this);
+
     }
 
 
@@ -30,6 +36,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view ==  Start) {
             Intent intent = new Intent(this, ConnectionWindows.class);
+            startActivity(intent);
+        }
+        if (view ==  Try) {
+            Intent intent = new Intent(this, TryPage.class);
             startActivity(intent);
         }
     }

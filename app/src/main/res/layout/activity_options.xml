@@ -22,8 +22,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="255dp"
-        android:layout_height="510dp"
+        android:layout_width="373dp"
+        android:layout_height="516dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,8 +34,8 @@
 
         <ListView
             android:id="@+id/ViewP"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="356dp"
+            android:layout_height="523dp" />
     </LinearLayout>
 
     <Button
