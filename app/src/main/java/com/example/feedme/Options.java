@@ -45,6 +45,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 
     public int take;
     public int del;
+    public int kosher;
 
 
     ArrayList<String> ChooseDel= new ArrayList<>();
@@ -77,6 +78,8 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
         ChoosePlace = intent.getExtras().getString("ChoosePlace");
         ChoosePrice = intent.getExtras().getInt("ChoosePrice");
         id_of_client= intent.getExtras().getString("id");
+        kosher= intent.getExtras().getInt("kosher");
+
 
 
         rootNode = FirebaseDatabase.getInstance();
@@ -94,7 +97,7 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 
         System.out.println("new page");
 //        System.out.println("******************************"+ ChooseDel.toString());
-        System.out.println("******************************"+ChooseCategories.toString());
+//        System.out.println("******************************"+ChooseCategories.toString());
         System.out.println("******************************"+ChoosePlace.toString());
         //System.out.println("******************************"+ChoosePrice.toString());
         arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList);
@@ -115,8 +118,11 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
 
                 String temp=(String) snapshot.child("takeAway").getValue().toString();
                 String temp2=(String) snapshot.child("delivery").getValue().toString();
+                String temp3=(String) snapshot.child("kosher").getValue().toString();
                 int takeproduct=Integer.parseInt(temp);
                 int delproduct=Integer.parseInt(temp2);
+                int kosherproduct=Integer.parseInt(temp3);
+
 
                 int p=Integer.parseInt(price);
                 //System.out.println("ChoosePrice"+ChoosePrice+"ChoosePlace"+ChoosePlace);
@@ -125,22 +131,27 @@ public class Options extends AppCompatActivity  implements View.OnClickListener{
                 if(del==1&& delproduct==1){ flag=true;}
                 if(take==0 && del==0){flag=true;}
 
+                boolean flag2=false;
+                if(kosher==1 && kosherproduct==1){ flag2=true;}
+                if(kosher==0&& kosherproduct==0){ flag2=true;}
+
+
                 if(ChoosePrice==-1) {
-                    if(ChoosePlace.equals(" ") &&flag==true) {
+                    if(ChoosePlace.equals(" ") &&flag==true && flag2==true) {
                         arrayList.add(value);
                     }
                     else
-                    if(area.equals(ChoosePlace)&&flag==true){
+                    if(area.equals(ChoosePlace)&&flag==true && flag2==true){
                         arrayList.add(value);
                     }
                 }
 
                 if(p<=ChoosePrice ){
-                    if(ChoosePlace.equals(" ")&&flag==true) {
+                    if(ChoosePlace.equals(" ")&&flag==true && flag2==true) {
                         arrayList.add(value);
                     }
                     else
-                    if(area.equals(ChoosePlace)&&flag==true){
+                    if(area.equals(ChoosePlace)&&flag==true && flag2==true){
                         arrayList.add(value);
                     }
                 }

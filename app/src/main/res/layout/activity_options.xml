@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mel"
     tools:context=".Options">
 
     <TextView
@@ -42,7 +43,7 @@
         android:layout_width="104dp"
         android:layout_height="68dp"
         android:text="ביצוע הזמנה"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#A99C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.091"

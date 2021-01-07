@@ -53,7 +53,7 @@ public class UpdateProduct extends AppCompatActivity implements View.OnClickList
     String id_of_Product;
     String id_of_business;
     String place;
-    public int kosher=1;
+    public int kosher;
     public int take;
     public int del;
     FirebaseDatabase rootNode;

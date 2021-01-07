@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/business"
     tools:context=".RegisterNewBusiness">
 
     <EditText
         android:id="@+id/Name"
-        android:layout_width="366dp"
-        android:layout_height="38dp"
+        android:layout_width="387dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:hint="שם מלא"
         android:inputType="textPersonName"
@@ -22,59 +23,59 @@
 
     <EditText
         android:id="@+id/Adress"
-        android:layout_width="360dp"
-        android:layout_height="42dp"
+        android:layout_width="387dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:hint="כתובת העסק"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintVertical_bias="0.297" />
 
     <EditText
         android:id="@+id/Password"
-        android:layout_width="358dp"
-        android:layout_height="45dp"
+        android:layout_width="387dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:hint="סיסמא"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.629" />
 
     <EditText
         android:id="@+id/Email"
-        android:layout_width="352dp"
-        android:layout_height="40dp"
+        android:layout_width="387dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:hint="מייל"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintVertical_bias="0.515" />
 
     <EditText
         android:id="@+id/Phone"
-        android:layout_width="366dp"
-        android:layout_height="40dp"
+        android:layout_width="387dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:hint="מספר ליצירת קשר"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <TextView
         android:id="@+id/Text"
@@ -84,34 +85,34 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.063" />
 
     <Button
         android:id="@+id/Exist"
         android:layout_width="276dp"
         android:layout_height="46dp"
         android:text="יש לי עסק"
-        app:backgroundTint="#009688"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintVertical_bias="0.839" />
 
     <Button
         android:id="@+id/Update"
         android:layout_width="273dp"
         android:layout_height="48dp"
         android:text="הירשם"
-        app:backgroundTint="#009688"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.751" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

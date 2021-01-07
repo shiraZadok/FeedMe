@@ -35,8 +35,6 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
 
     TextView Categories;
     CheckBox Kosher;
-    CheckBox GlutenFree;
-    CheckBox Parve;
 
     Button Search;
     public String id_of_client;
@@ -67,8 +65,6 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
 
         Categories=(TextView)findViewById(R.id.Categories);
         Kosher=(CheckBox)findViewById(R.id.Kosher);
-        GlutenFree=(CheckBox)findViewById(R.id.GlutenFree);
-        Parve=(CheckBox)findViewById(R.id.Parve);
 
         Search=(Button)findViewById(R.id.UpdateProductButton);
 
@@ -83,7 +79,7 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
     int del=0;
     String ChoosePlace=" ";
     int ChoosePrice=-1;
-    ArrayList<String> ChooseCategories= new ArrayList<>();
+    int kosher=0;
 
     @Override
     public void onClick(View view) {
@@ -122,31 +118,26 @@ public class Filters extends AppCompatActivity implements View.OnClickListener  
         if(Unlimited.isChecked() ){
             ChoosePrice=-1;
         }
-        if(Kosher.isChecked() && !ChooseCategories.contains("Kosher")){
-            ChooseCategories.add("Kosher");
+        if(Kosher.isChecked() ){
+            kosher=1;
         }
 
-        if(GlutenFree.isChecked() && !ChooseCategories.contains("GlutenFree")){
-            ChooseCategories.add("GlutenFree");
-        }
-
-        if(Parve.isChecked() && !ChooseCategories.contains("Parve")){
-            ChooseCategories.add("Parve");
-        }
 
 
         if(view==Search){
             //System.out.println("******************************"+ChooseDel.toString());
-            System.out.println("******************************"+ChooseCategories.toString());
+          //  System.out.println("******************************"+ChooseCategories.toString());
             System.out.println("******************************"+ChoosePlace.toString());
             //System.out.println("******************************"+ChoosePrice.toString());
             Intent intent=new Intent(this,Options.class);
-            intent.putExtra("ChooseCategories",  ChooseCategories);
+           // intent.putExtra("ChooseCategories",  ChooseCategories);
             intent.putExtra("takeAway", take);
             intent.putExtra("delivery", del);
             intent.putExtra("ChoosePlace",  ChoosePlace);
             intent.putExtra("ChoosePrice", ChoosePrice);
             intent.putExtra("id", id_of_client);
+            intent.putExtra("kosher",kosher);
+
             startActivity(intent);
         }
     }

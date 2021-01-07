@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mel"
     tools:context=".ProductToUpdate">
 
     <LinearLayout
@@ -31,7 +32,7 @@
         android:layout_width="112dp"
         android:layout_height="86dp"
         android:text="עדכון מוצרים קיימים"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#AB9C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -44,7 +45,7 @@
         android:layout_width="95dp"
         android:layout_height="90dp"
         android:text="מחיקת מוצרים"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#B29C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -57,7 +58,7 @@
         android:layout_width="101dp"
         android:layout_height="90dp"
         android:text="צור מוצר חדש"
-        app:backgroundTint="#009688"
+        app:backgroundTint="#A99C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"

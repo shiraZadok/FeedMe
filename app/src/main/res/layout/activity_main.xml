@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mel"
     tools:context=".MainActivity">
 
     <TextView
@@ -22,7 +23,7 @@
         android:layout_height="162dp"
         android:onClick="onClick"
         android:text="Welcome!  Let's start "
-        app:backgroundTint="#009688"
+        app:backgroundTint="#CEFFEB3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

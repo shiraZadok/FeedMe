@@ -38,6 +38,8 @@ public class BusinessOrders extends AppCompatActivity implements View.OnClickLis
     Button Erase;
     public String item;
     public String  id_order;
+    public int take;
+    public int del;
 
     public String id_func (String name,String search){
         System.out.println("name= "+name);
@@ -61,6 +63,8 @@ public class BusinessOrders extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         id_business = intent.getExtras().getString("Bid");
+        take = intent.getExtras().getInt("takeAway");
+        del = intent.getExtras().getInt("delivery");
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Orders");
         super.onCreate(savedInstanceState);
@@ -127,8 +131,11 @@ public class BusinessOrders extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
 
         if (v==Erase){
-            Intent intent = new Intent(this, BusinessOrders.class);
+            Intent intent = new Intent(this, BusinessPage.class);
             intent.putExtra("Bid", id_business);
+            intent.putExtra("takeAway", take);
+            intent.putExtra("delivery", del);
+
 
             AlertDialog.Builder dialog=new AlertDialog.Builder(this);
             dialog.setTitle("Watch out!");

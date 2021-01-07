@@ -2,8 +2,10 @@ package com.example.feedme;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -164,10 +166,31 @@ public class ProductToUpdate extends AppCompatActivity {
                 startActivity(intphto);
             }
         });
+
+        AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Cleartxt();
+                dialog.setTitle("Watch out!");
+                dialog.setMessage("Are you sure you want to delete this Product?");
+                dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Toast.makeText(getApplicationContext(),"you have pressed tes",Toast.LENGTH_SHORT).show();
+                        reference = rootNode.getReference("Products").child(id_of_item);
+                        reference.removeValue();
+                        startActivity(intent);
+
+                    }
+                });
+                dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                dialog.show();
             }
         });
     }

@@ -37,7 +37,7 @@ public class CustomerOrderDetails extends AppCompatActivity implements View.OnCl
     public String oldphone;
     public String oldemail;
     public String oldadress;
-    public String oldremark;
+    public String remark;
     public String id_of_client;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,6 @@ public class CustomerOrderDetails extends AppCompatActivity implements View.OnCl
                 oldphone=(String)snapshot.child("Phone").getValue().toString();
                 oldemail=(String)snapshot.child("Email").getValue().toString();
                 oldadress=(String)snapshot.child("Adress").getValue().toString();
-                //oldremark=(String)snapshot.child("").getValue().toString();
             }
 
             @Override
@@ -97,7 +96,10 @@ public class CustomerOrderDetails extends AppCompatActivity implements View.OnCl
             if(!Email.getText().toString().isEmpty()) {
                 oldemail=Email.getText().toString();
             }
-            Order newOrder=new Order(id_of_business_item,Num_Product,oldname,oldphone,oldadress,oldemail);
+            if(!Remarks.getText().toString().isEmpty()) {
+               remark=Remarks.getText().toString();
+            }
+            Order newOrder=new Order(id_of_business_item,Num_Product,oldname,oldphone,oldadress,oldemail,remark);
             String id_of_order=reference.push().getKey();
             newOrder.id_order=id_of_order;
 

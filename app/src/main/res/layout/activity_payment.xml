@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backround"
     tools:context=".Payment">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="235dp"
         android:layout_height="267dp"
+        android:fontFamily="@font/bungee_shade"
         android:text="הזמנה בוצעה בהצלחה "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

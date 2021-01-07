@@ -12,13 +12,14 @@ public class Order {
     public String email;
     public String adress;
     public String remark;
-    public Order(String id_of_business_item, String num_product,String name,String phone,String adress,String email){
+    public Order(String id_of_business_item, String num_product,String name,String phone,String adress,String email,String remarks){
         this.id_of_business_item=id_of_business_item;
         this.num_product=num_product;
         this.name=name;
         this.email=email;
         this.adress=adress;
         this.phone=phone;
+        this.remark=remarks;
     }
 
     public Order(){

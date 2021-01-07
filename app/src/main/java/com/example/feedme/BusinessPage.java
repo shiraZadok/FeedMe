@@ -91,6 +91,8 @@ public class BusinessPage extends AppCompatActivity implements View.OnClickListe
         if (view ==  MyOrders) {
             Intent intent = new Intent(this, BusinessOrders.class);
             intent.putExtra("Bid",id_of_business);
+            intent.putExtra("delivery",del);
+            intent.putExtra("takeAway",take);
 
             startActivity(intent);
         }
