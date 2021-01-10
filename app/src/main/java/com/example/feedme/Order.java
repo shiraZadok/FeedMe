@@ -27,7 +27,7 @@ public class Order {
     }
     @Override
     public String toString(){
-        return "num_product= "+num_product+", id_order= "+id_order;
+        return "number of product="+num_product+"\nname of client="+name+"\nphone="+phone+"\nid order= "+id_order;
 
                 //+", client name="+newname+", client addres="+newadress+", client phone number="+newphone+", client email="+newemail
                // +", client remarks="+newremark;

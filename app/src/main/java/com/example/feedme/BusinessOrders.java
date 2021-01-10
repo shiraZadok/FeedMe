@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.fonts.Font;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -46,7 +47,7 @@ public class BusinessOrders extends AppCompatActivity implements View.OnClickLis
         int index_id=name.indexOf(search);
         index_id+=search.length()+1;
         String answer="";
-        while(index_id<=name.length()-1 &&name.charAt(index_id)!=','){
+        while(index_id<=name.length()-1 &&name.charAt(index_id)!='\n'){
             System.out.print(name.charAt(index_id));
             answer+=name.charAt(index_id);
             index_id++;
@@ -118,7 +119,7 @@ public class BusinessOrders extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 item=(String)adapterView.getItemAtPosition(i);//This will give you the same result of viewHolder.LL.setOnClickListener as you are doing
-                id_order=id_func(item,"id_order=");
+                id_order=id_func(item,"id order=");
             }
 
         });
