@@ -13,7 +13,7 @@ import android.widget.TextView;
 //This class represent the home page of the client after he login to the app
 public class ChooseCookingBakery extends AppCompatActivity implements View.OnClickListener{
 
-    Button HouseCooking;
+    //Button HouseCooking;
     Button HouseBakery;
     Button ClientProfile;
     String id_of_client;
@@ -24,22 +24,22 @@ public class ChooseCookingBakery extends AppCompatActivity implements View.OnCli
         id_of_client = intent.getExtras().getString("id");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_cooking_bakery);
-        HouseCooking=(Button)findViewById(R.id.HouseCooking);
+        //HouseCooking=(Button)findViewById(R.id.HouseCooking);
         HouseBakery=(Button)findViewById(R.id.HouseBakery);
         ClientProfile=(Button)findViewById(R.id.ClientProfile);
         textViewExplain=(TextView)findViewById(R.id.textViewExplain);
-        HouseCooking.setOnClickListener(this);
+        //HouseCooking.setOnClickListener(this);
         HouseBakery.setOnClickListener(this);
         ClientProfile.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view ==  HouseCooking) {
-            Intent intent = new Intent(this, Filters.class);
-            intent.putExtra("id",id_of_client);
-            startActivity(intent);
-        }
+//        if (view ==  HouseCooking) {
+//            Intent intent = new Intent(this, Filters.class);
+//            intent.putExtra("id",id_of_client);
+//            startActivity(intent);
+//        }
         if (view ==  HouseBakery) {
             Intent intent = new Intent(this, Filters.class);
             intent.putExtra("id",id_of_client);

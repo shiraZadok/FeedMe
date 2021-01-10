@@ -8,19 +8,6 @@
     tools:context=".ChooseCookingBakery">
 
     <Button
-        android:id="@+id/HouseCooking"
-        android:layout_width="360dp"
-        android:layout_height="170dp"
-        android:text="House Cooking"
-        app:backgroundTint="#909C27B0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.971" />
-
-    <Button
         android:id="@+id/HouseBakery"
         android:layout_width="357dp"
         android:layout_height="165dp"
@@ -30,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651" />
+        app:layout_constraintVertical_bias="0.823" />
 
     <Button
         android:id="@+id/ClientProfile"
