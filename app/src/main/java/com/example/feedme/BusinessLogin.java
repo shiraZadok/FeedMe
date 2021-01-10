@@ -56,10 +56,10 @@ public class BusinessLogin extends AppCompatActivity implements View.OnClickList
             Intent intent = new Intent(this, RegisterNewBusiness.class);
             startActivity(intent);
         }
-//        if (view == ForgotPassword) {
-//            Intent intent = new Intent(this, .class);
-//            startActivity(intent);
-//        }
+        if (view == ForgotPassword) {
+            Intent intent = new Intent(this, ForgotPassword.class);
+            startActivity(intent);
+        }
         if (view == Connect) {
 
             rootNode=FirebaseDatabase.getInstance();

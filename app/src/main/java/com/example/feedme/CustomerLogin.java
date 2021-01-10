@@ -96,9 +96,9 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
 
             }
             if (view == ForgotPassword) {
-                Intent intent = new Intent(this, ForgotPassword.class);
+                Intent intent = new Intent(this, ForgetPasswordClient.class);
                 startActivity(intent);
-            }
+          }
         }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

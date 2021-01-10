@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.content.Intent;
@@ -25,154 +27,92 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Properties;
 
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 //
 public class ForgotPassword extends AppCompatActivity implements View.OnClickListener {
 
     Button send;
     EditText etTo;
-    String sEmail;
-    String sPassword;
-
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+
         @Override
     protected void onCreate(Bundle savedInstanceState) {
+            Intent intent=getIntent();
+
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_forgot_password);
             send = findViewById(R.id.Send);
             etTo = findViewById(R.id.editTextTextEmailAddress);
 
-            sEmail = "shira19941@gmail.com";
-            sPassword = "shirazadok7";
-            send.setOnClickListener(this);
+            //send.setOnClickListener(this);
+            send.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    rootNode=FirebaseDatabase.getInstance();
+                    reference=rootNode.getReference("Business");
+                    reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                                //from DB
+                                String phone = (String) postSnapshot.child("BPhone").getValue().toString();
+                                String password = (String) postSnapshot.child("BPassword").getValue().toString();
+                                if(phone.equals(etTo.getText().toString())){
+                                    boolean installed = isAppInstalled("com.whatsapp");
+                                    String num ="+972";
+                                    num+=etTo.getText().toString().substring(1);
+                                    String text = "Hey this is your FeedMe app password:"+password;
+
+                                    if(installed)
+                                    {
+                                        Intent i = new Intent(Intent.ACTION_VIEW);
+                                        i.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + num + "&text=" + text));
+                                        startActivity(i);
+                                    }
+                                    else{
+                                        Toast.makeText(ForgotPassword.this , "whatsapp is not installed!" , Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+
+
+                            }
+
+                        }
+
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
+                }
+            });
+
         }
+
+    private boolean isAppInstalled(String s) {
+        PackageManager pk = getPackageManager();
+        boolean is_installed;
+
+        try {
+            pk.getPackageInfo(s, pk.GET_ACTIVITIES);
+            is_installed = true;
+
+        } catch (PackageManager.NameNotFoundException e) {
+            is_installed = false;
+            e.printStackTrace();
+        }
+
+        return is_installed;
+    }
 
     @Override
     public void onClick(View v) {
-        if(v==send){
-            Mailer.send("shaharglikman00@gmail.com","shahar!!1998","shira19941@gmail.com","password","555");
-        }
-    }
 
-//        // attach setOnClickListener to button
+    }
 }
-//public class ForgotPassword extends AppCompatActivity {
-//
-//    Button send;
-//    EditText etTo;
-//    String sEmail;
-//    String sPassword;
-//
-//    FirebaseDatabase rootNode;
-//    DatabaseReference reference;
-//    public static String emailbody;
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_forgot_password);
-//        send = findViewById(R.id.Send);
-//        etTo = findViewById(R.id.editTextTextEmailAddress);
-//
-//        sEmail="shira19941@gmail.com";
-//        sPassword="shirazadok7";
-//
-//        // attach setOnClickListener to button
-//        // with Intent object define in it
-//        send.setOnClickListener(new OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view)
-//            {
-//                Properties properties=new Properties();
-//                properties.put("mail.smtp.auth","true");
-//                properties.put("mail.smtp.starttls.enable","true");
-//                properties.put("mail.smtp.host","smtp.gmail.com");
-//                properties.put("mail.smtp.port","587");
-//
-//                Session session=Session.getInstance(properties, new Authenticator() {
-//                    @Override
-//                    protected PasswordAuthentication getPasswordAuthentication() {
-//                        return new PasswordAuthentication(sEmail,sPassword);
-//                    }
-//                });
-//
-//
-//                try {
-//                    Message message= new MimeMessage(session);
-//                    message.setFrom(new InternetAddress(sEmail));
-//                    message.setRecipient(Message.RecipientType.TO,new InternetAddress(etTo.getText().toString().trim()));
-//                            //InternetAddress.parse(etTo.getText().toString().trim()));
-//                    //new InternetAddress(etTo.getText().toString().trim())
-//                    message.setSubject("password");
-//                    message.setText("Your password is"+"555");
-//                    new SendMail().execute(message);
-//                } catch (MessagingException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        });
-//    }
-//
-//    private class SendMail extends AsyncTask<Message,String,String> {
-//        private ProgressDialog progressDialog;
-//        @Override
-//        protected void onPreExecute(){
-//            super.onPreExecute();
-//            progressDialog=ProgressDialog.show(ForgotPassword.this,"please wait","sending mail",true,false);
-//        }
-//        @Override
-//        protected String doInBackground(Message... messages) {
-//            System.out.println("messages[0]"+messages[0]);
-//            try {
-//                Transport.send(messages[0]);
-//                return "Success";
-//            } catch (MessagingException e) {
-//                e.printStackTrace();
-//                return "Error";
-//            }
-//
-//
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String s) {
-//            super.onPostExecute(s);
-//            progressDialog.dismiss();
-//            if(s.equals("Success")){
-//                AlertDialog.Builder builder=new AlertDialog.Builder(ForgotPassword.this);
-//                builder.setCancelable(false);
-//                builder.setTitle(Html.fromHtml("<font color='#509324'>Success</font>"));
-//                builder.setMessage("Mail sent");
-//                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                        etTo.setText("");
-//                       // etSubject.setText("");
-//                      //  etMessage.setText("");
-//
-//
-//                    }
-//                });
-//                builder.show();
-//            }
-//            else{
-//                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
-//}
-//
-//
-//
-//        //Mailer.send("netanelsh0@gmail.com","סיסמא","shira19941@gmail.com","hello or","helooooo meir");
 
