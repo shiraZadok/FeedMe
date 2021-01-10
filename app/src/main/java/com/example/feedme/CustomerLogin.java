@@ -52,25 +52,25 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
     }
 
         @Override
-        public void onClick (View view){
+        public void onClick (View view) {
 
-            if (view ==  NewClient) {
+            if (view == NewClient) {
                 Intent intent = new Intent(this, RegisterNewClient.class);
                 startActivity(intent);
             }
 
             if (view == Connect) {
-                rootNode=FirebaseDatabase.getInstance();
-                reference=rootNode.getReference("Cients");
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("Cients");
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                        for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                             //from DB
                             String name = (String) postSnapshot.child("Name").getValue().toString();
                             String password = (String) postSnapshot.child("Password").getValue().toString();
-                            if(name.equals(FullName.getText().toString())&&password.equals(Password.getText().toString())){
-                                flag=1;
+                            if (name.equals(FullName.getText().toString()) && password.equals(Password.getText().toString())) {
+                                flag = 1;
                                 String id = (String) postSnapshot.child("id").getValue().toString();
                                 Intent intent = new Intent(CustomerLogin.this, ChooseCookingBakery.class);
                                 intent.putExtra("id", id);
@@ -80,7 +80,7 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
 
 
                         }
-                        if(flag==0){
+                        if (flag == 0) {
                             Toast.makeText(CustomerLogin.this, "WRONG PASSWORD/NAME", Toast.LENGTH_SHORT).show();
 
                         }
@@ -94,9 +94,12 @@ public class CustomerLogin extends AppCompatActivity implements View.OnClickList
                 });
 
 
-
-                }
             }
+            if (view == ForgotPassword) {
+                Intent intent = new Intent(this, ForgotPassword.class);
+                startActivity(intent);
+            }
+        }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
